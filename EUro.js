@@ -2,60 +2,11 @@ import React from 'react'
 import { View, Text ,StyleSheet,Image, SafeAreaView ,Button,TouchableOpacity,TextInput,KeyboardAvoidingView,TouchableHighlight,Alert} from 'react-native'
 import {NavigationContainer, createAppContainer, createNavigatorFactory} from '@react-navigation/native'
 import {createStackNavigator} from '@react-navigation/stack'
-
-import LoginFOrm from './LoginFOrm'
-
-
 const Stack = createStackNavigator();
-
-function AnimateScreen1() {
-  return(
-    <View style={{flex:1, backgroundColor:'#73C6B6',alignItems:'center',justifyContent:'center'}}>
-
-      <Image style ={{width: 250, height: 150}}
-      source={require('./assets/NFDicon.jpg')}/>
- 
-    </View>
-  )
-  
-}
-
-function Login2(){
-  return(
-    <View style={{flex:1,backgroundColor:'#73C6B6'}}  >
-      <View style={{flex:1}}>
-        <Image style ={{width: 100,
-      height: 100,
-      resizeMode: 'contain'
-    }}
-      source={require('./assets/NFDicon.jpg')}/>
-      </View>
-      <View style={{flex:4}}>
-        <Text style={{fontSize: 30}}>
-          Detection {"\n"}Smart{"\n"}Home{"\n"}
-        </Text>
-        
-      </View>
-      <View>
-        <AppButtonLog style={{backgroundColor:'#FFF'}} title="Login"/>
-        <AppButtonLog style={{backgroundColor:'#FFF'}} title="Password"/>
-        
-      </View>
-    </View>
-  )
-}
-const AppButtonLog = ({ onPress, title }) => (
-  <TouchableOpacity onPress={onPress} 
-  style={{
-  backgroundColor:'#FFF',marginTop:20, elevation:20,paddingVertical: 20,paddingHorizontal:10,marginVertical: 10}} >
-    <Text style={{color:'',fontSize:30,textAlign:'center'}}>{title}</Text>
-  </TouchableOpacity>
-);
-
 
 /**หน้าLogin3 Getcode*/
 function messageLog1() {
-  Alert.alert('Log In',"textttt")
+  Alert.alert('Log In',"hello")
   
   
 }
@@ -85,19 +36,7 @@ function Login3(){
     
   )
 }
-function LoadingLog() {
-  return(
-  <View style={{flex:1,backgroundColor:'#73C6B6',alignItems:'center',
-  justifyContent:'center',}}>
-    <Text style={{marginBottom:20 ,fontSize:30,fontWeight:'bold'}}>Loading Data ...</Text>
-    <View style={{alignItems:'center',
-  justifyContent:'center',}}>
-      <Image style ={{width: 100,height: 100,resizeMode: 'contain'}}source={require('./assets/loader.jpg')}/> 
-    </View>
-      
-  </View>)
 
-}
 const AppButtonLog3 = ({ onPress,title }) => (
   <TouchableOpacity onPress={onPress} 
   style={{
@@ -106,114 +45,12 @@ const AppButtonLog3 = ({ onPress,title }) => (
   </TouchableOpacity>
 );
 
-function mainPatient() {
-  return(
-    <View style={{ flex:1,alignItems:'center', backgroundColor: '#73C6B6' }}>
-
-        <Text style={styles.MainText}> Wannasak </Text>
-        <Text style={styles.MainText}> Assistance </Text>
-        <Text style={{textAlign:'center',color:'#fff',fontSize:20}}> Connected </Text>
-    <View style={{flex:1,flexDirection:'row',justifyContent:'space-around'}}>
-      <View><Text> Fall </Text></View>
-      <View><Text> NearFall </Text></View>
-    </View>
-      
-        
-        
-    </View>
-  )
-  
-}
-
-
-function HomeScreen1({navigation}) {
-  return(
-    <View style={{ flex:1,alignItems: 'center', backgroundColor: '#73C6B6' }}>
-      <Text style={styles.MainText}> Caregiver </Text>
-      <Text style={styles.MainText}> 19/09/2020||21:36:20 </Text>
-
-      <View style={{ flex:1,alignItems: 'center',justifyContent:'center'}}>
-        <AppButton title="Patients ผู้ป่วย" size="sm" backgroundColor="#007bff" 
-        onPress={() => navigation.navigate('Details')}></AppButton>
-        <AppButton2 title="Add Patient สบายๆ" size="sm" backgroundColor="#007bff" 
-        onPress={() => navigation.navigate('Details')}></AppButton2>
-        <AppButton2 title="Help Center" size="sm" backgroundColor="#fff" 
-        onPress={() => navigation.navigate('Details')}></AppButton2> 
-      </View> 
-
-    </View>
-  )
-  
-}
-
-
-function Addpatients() {
-  return(
-    <View style={{flex:1,justifyContent: "center",alignItems: "center"}}>
-      <Text style={styles.MainText}> Raksilp Chotemongkolkul </Text>
-      <Text style={{fontSize: 20,fontWeight: 'bold', marginBottom: 15}}> Raksilp</Text>
-      
-      
-    </View>
-  )
-  
-}
-
-function DetailScreen(navigation) {
-  return(
-
-   
-    <KeyboardAvoidingView behavior="padding" style={{flex:1}}>
-      
-      <View style={{flex:1,backgroundColor: "#73C6B6"}}>
-        <View style={{ marginTop:60, flex:1,alignItems: 'center',justifyContent:'center'}}>
-          <Text style={styles.MainText}> Patients </Text>
-          <Image
-          style={{width: 200,height:200,borderRadius: 300/2}}
-          source={{
-            uri: 'https://scontent.xx.fbcdn.net/v/t1.0-9/122082235_3414586465302910_2734779902747346109_o.jpg?_nc_cat=111&ccb=2&_nc_sid=09cbfe&_nc_eui2=AeE5NhpllyU4FDmiQ1bayTRHXqptoAuLGfteqm2gC4sZ-z9NcsFMqr12Yh1sv0myUTzCRNcalEz4uE4cpe6p1_FG&_nc_ohc=QqhMfQrhc2QAX_xTC1u&_nc_ht=scontent.xx&oh=bd246b7b69db7b6fc528a4547473a517&oe=600595D7',
-          }}
-          />
-          <AppButton2 title="Home" size="sm" backgroundColor="#007bff" 
-          onPress={() => navigation.navigate('home')}></AppButton2>
-        </View >
-        
-        <View style={{marginTop: 200}}>
-          <TextInput style={styles.input}
-            placeholder="Hospital Number"
-          placeholderTextColor="rgba(255,255,255,0.7)"
-          onSubmitEditing={()=>this.passwordInput.focus()}
-          
-          />
-          <TextInput style={styles.input}
-          placeholder="password"
-          placeholderTextColor="rgba(255,255,255,0.7)"
-          secureTextEntry
-          ref={(input)=> this.passwordInput = input}
-          /*returnKeyType="Done"*/
-          />
-          <TouchableOpacity style={{backgroundColor:'#F1948A', paddingVertical: 15}}>
-            <Text style={{textAlign:'center', color: '#FFF',fontSize:30}}>Login</Text>
-          </TouchableOpacity>
-
-        
-        </View>
-      </View>
-      
-      
-    </KeyboardAvoidingView>
-  
-  )
-  
-}
-
-
-export default function App() {
+export default function EUro() {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRoutName="1">
 
-        <Stack.Screen name="1" component={mainPatient} />
+        <Stack.Screen name="1" component={Login3} />
         
         <Stack.Screen name="home" component={HomeScreen1} options={{
           title: 'Mr. raksilp',
@@ -308,66 +145,5 @@ const styles = StyleSheet.create({
     
   }
 });
-
-const AppButton = ({ onPress, title }) => (
-  <TouchableOpacity onPress={onPress} style={styles.appButtonContainer1} >
-    <Text style={styles.appButtonText}>{title}</Text>
-  </TouchableOpacity>
-);
-const AppButton2 = ({ onPress, title }) => (
-  <TouchableOpacity onPress={onPress} style={styles.appButtonContainer2}>
-    <Text style={styles.appButtonText}>{title}</Text>
-  </TouchableOpacity>
-);
-
-
-/*<View style={{ flex:1,alignItems: 'center', backgroundColor: 'skyblue'}} >
-      <Text style={styles.MainText}> Add paients </Text>
-      <Text style={{fontSize: 20,fontWeight: 'bold', marginBottom: 15}}> Raksilp</Text>
-    <View style={{ flex:1,alignItems: 'center',justifyContent:'center'}}>
-      <Image
-        style={{flex:1,width: 200,height: 300,borderRadius: 300/2}}
-        source={{
-          uri: 'https://scontent.xx.fbcdn.net/v/t1.0-9/122082235_3414586465302910_2734779902747346109_o.jpg?_nc_cat=111&ccb=2&_nc_sid=09cbfe&_nc_eui2=AeE5NhpllyU4FDmiQ1bayTRHXqptoAuLGfteqm2gC4sZ-z9NcsFMqr12Yh1sv0myUTzCRNcalEz4uE4cpe6p1_FG&_nc_ohc=QqhMfQrhc2QAX_xTC1u&_nc_ht=scontent.xx&oh=bd246b7b69db7b6fc528a4547473a517&oe=600595D7',
-        }}
-      />
-    </View >
-    
-    <View style={{flex:1}}>
-      <AppButton title="Raksilp" size="sm" backgroundColor="#007bff" 
-      
-      
-      />
-      <AppButton title="Chotemongkolkul" size="sm" backgroundColor="#007bff" />
-      <AppButton title="Hey there!" size="sm" backgroundColor="#007bff" />
-      <AppButton title="Hey there!" size="sm" backgroundColor="#007bff" /> 
-    </View>
-    <View style={{flex:1,marginTop: 50}}>
-      <AppButton2 title="Assistance" size="sm" backgroundColor='black' />
-      <AppButton2 title="Delete" size="sm" backgroundColor="#007bff" />
-    </View>
-
-    </View>*/
-
-
-    /* ใส่รูปadd บนheader 
-     options={{
-    headerTitle: () => (
-        <Image
-        style={{width: 50, height: 50}}
-        source={{uri: 'https://scontent.xx.fbcdn.net/v/t1.0-9/122082235_3414586465302910_2734779902747346109_o.jpg?_nc_cat=111&ccb=2&_nc_sid=09cbfe&_nc_eui2=AeE5NhpllyU4FDmiQ1bayTRHXqptoAuLGfteqm2gC4sZ-z9NcsFMqr12Yh1sv0myUTzCRNcalEz4uE4cpe6p1_FG&_nc_ohc=QqhMfQrhc2QAX_xTC1u&_nc_ht=scontent.xx&oh=bd246b7b69db7b6fc528a4547473a517&oe=600595D7',}}
-        />
-    ),
-    }} */
-
-
-
-
-
-
-
-
-
-
 
 
