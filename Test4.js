@@ -16,11 +16,11 @@ const styles = StyleSheet.create({
   },
 });
  
-const Test4 = ({onSignIn}) => {
+const Test4 = ({navigation}) => {
   return (
     <View style={styles.container}>
-      <Text>Public Sign In Screen</Text>
-      <Button title="Sign In" onPress={onSignIn} />
+      <Text style={{fontSize:70}}> Test 4</Text>
+      <Button title="Goto test 4" onPress={() => navigation.navigate('Test2')} />
     </View>
   );
 };

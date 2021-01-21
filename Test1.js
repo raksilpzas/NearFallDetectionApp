@@ -21,15 +21,15 @@ const styles = StyleSheet.create({
   },
 });
 
-function pam({navigation}) {
+function fun1({navigation}) {
   return(
     <View style={{ flex:1,alignItems: 'center', backgroundColor: '#73C6B6' }}>
       <Text style={styles.MainText}> Caregiver </Text>
       <Text style={styles.MainText}> 19/09/2020||21:36:20 </Text>
 
       <View style={{ flex:1,alignItems: 'center',justifyContent:'center'}}>
-        <Button title="Patients ผู้ป่วย" size="sm" backgroundColor="#007bff" 
-        onPress={() => navigation.navigate('pam2')}></Button>
+        <Button title="GO to fun2" size="sm" backgroundColor="#007bff" 
+        onPress={() => navigation.navigate('fun2')}></Button>
       </View> 
 
     </View>
@@ -37,14 +37,14 @@ function pam({navigation}) {
   
 }
 
-function pam2({navigation}) {
+function fun2({navigation}) {
   return(
     <View style={{ flex:1,alignItems: 'center', backgroundColor: '#73C6B6' }}>
       
 
       <View style={{ flex:1,alignItems: 'center',justifyContent:'center'}}>
-        <Button title="2222222222222" size="sm" backgroundColor="#007bff" 
-        onPress={() => navigation.navigate('Test2')}></Button>
+        <Button title="Go to Test3" size="sm" backgroundColor="#007bff" 
+        onPress={() => navigation.navigate('Test3')}></Button>
       </View> 
 
     </View>
@@ -55,9 +55,9 @@ function pam2({navigation}) {
 const Test1 = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="pam">
-        <Stack.Screen name="pam" component={pam} />
-        <Stack.Screen name="pam2" component={pam2} />
+      <Stack.Navigator initialRouteName="fun1">
+        <Stack.Screen name="fun1" component={fun1} />
+        <Stack.Screen name="fun2" component={fun2} />
         <Stack.Screen name="Test2" component={Test2} />
         <Stack.Screen name="Test3" component={Test3} />
         <Stack.Screen name="Test4" component={Test4} />

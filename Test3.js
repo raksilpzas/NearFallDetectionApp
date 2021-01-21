@@ -12,13 +12,18 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    
   },
 });
  
-const Test3 = () => {
+const Test3 = ({navigation}) => {
   return (
     <View style={styles.container}>
-      <Text>Protected Home Screen</Text>
+      <Text style={{fontSize: 70}}>Test 3</Text>
+      <Button
+        title="Go to Test4"
+        onPress={() => navigation.navigate('Test4')}
+      />
     </View>
   );
 };
