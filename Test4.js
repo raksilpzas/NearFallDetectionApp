@@ -39,7 +39,7 @@ const Test4 = ({navigation}) => {
       </View>   
       <View style={stylesMainPatient.paddd  }>
 
-        <TouchableOpacity style={{ height: 90,width:170,backgroundColor:'#fff', borderStartColor:'##40E0D0',borderWidth:2  }}>
+        <TouchableOpacity onPress={() => navigation.navigate('Trend')} style={{ height: 90,width:170,backgroundColor:'#fff', borderStartColor:'##40E0D0',borderWidth:2  }}>
           <View style={{flexDirection:'row'}}>
              <Image style ={{marginTop:30,marginLeft:10,width: 30,height: 30,resizeMode: 'contain'}}source={require('./assets/patient/bar-chart.png')}/>
       
@@ -51,7 +51,7 @@ const Test4 = ({navigation}) => {
           </View>
           
         </TouchableOpacity>
-        <TouchableOpacity style={{ height: 90,width:170,backgroundColor:'#fff', borderStartColor:'#000',borderWidth:2 }}>
+        <TouchableOpacity onPress={() => navigation.navigate('History')} style={{ height: 90,width:170,backgroundColor:'#fff', borderStartColor:'#000',borderWidth:2  }}>
           <View style={{flexDirection:'row'}}>
              <Image style ={{marginTop:35, marginLeft:10 , width: 30,height: 30,resizeMode: 'contain'}}source={require('./assets/patient/clock.png')}/>
              <Text style={{fontSize:30,textAlign:'center',marginTop:25,marginLeft:10}}>History</Text>
