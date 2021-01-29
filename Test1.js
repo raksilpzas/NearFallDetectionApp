@@ -1,18 +1,20 @@
 
 import { View, Text ,StyleSheet,Image, SafeAreaView ,Button,TouchableOpacity,TextInput,KeyboardAvoidingView,TouchableHighlight,Alert} from 'react-native'
-import {NavigationContainer, createAppContainer, createNavigatorFactory} from '@react-navigation/native'
+import {ImageBackground,NavigationContainer, createAppContainer, createNavigatorFactory} from '@react-navigation/native'
 import {createStackNavigator} from '@react-navigation/stack'
 import 'react-native-gesture-handler';
 import React from 'react'
 
+import {SelectMultipleButton,SelectMultipleGroupButton} from "react-native-selectmultiple-button";
 
 import Test2 from './Test2'
 import Test3 from './Test3'
 import Test4 from './Test4';
 import Trend from './Trend'
 import History from './History'
-
 import Setting from './Setting';
+
+
 //import Patient from './Patient'
 const Stack = createStackNavigator();
 
@@ -28,32 +30,33 @@ const styles = StyleSheet.create({
 function fun1({navigation}) {
   return(
     <View style={{flex:1,backgroundColor:'#8EDFC2'}}  >
+      <Image  style={{flex: 1}} source={require('./assets/patient/wet-floor.png')} />      
       <View style={{flex:1}}>
         <Image style ={{width: 100,
       height: 100,
       resizeMode: 'contain'
-    }}
+        }}
       source={require('./assets/NFDicon.jpg')}/>
       </View>
-      <View style={{flex:4}}>
-        <Text style={{fontSize: 30}}>
-          Detection {"\n"}Smart{"\n"}Home{"\n"}
-        </Text>
+
+        <View style={{flex:4}}>
+          <Text style={{fontSize: 30}}>
+            Detection {"\n"}Smart{"\n"}Home{"\n"}
+          </Text>
+        </View>
         
-      </View>
-      <View>
-        <AppButtonLog style={{backgroundColor:'#FFF'}} title="Login" onPress={() => navigation.navigate('fun2')}/>
-        <AppButtonLog style={{backgroundColor:'#FFF'}} title="Sign Up" onPress={() => navigation.navigate('Test3')}/>
+      <View style={{flex:4,justifyContent:'center',alignItems:'center'}}>
+          <AppButtonLog style={{backgroundColor:'#FFF'}} title="Login" onPress={() => navigation.navigate('fun2')}/>
+          <AppButtonLog style={{backgroundColor:'#FFF'}} title="Sign Up" onPress={() => navigation.navigate('Test3')}/>
         
       </View>
     </View>
-  )
-  
+  )  
 } 
 const AppButtonLog = ({ onPress, title }) => (
   <TouchableOpacity onPress={onPress} 
   style={{
-  backgroundColor:'#FFF',marginTop:20, elevation:20,paddingVertical: 20,paddingHorizontal:10,marginVertical: 10}} >
+  backgroundColor:'#FFF',marginTop:20, elevation:20,paddingVertical: 20,paddingHorizontal:10,marginVertical: 10,width:300,resizeMode: 'contain'}} >
     <Text style={{color:'',fontSize:30,textAlign:'center'}}>{title}</Text>
   </TouchableOpacity>
 );
@@ -74,7 +77,7 @@ function fun2({navigation}) {
       </Text>
       
     </View>
-    <View>
+    <View style={{flex:4,justifyContent:'center',alignItems:'center'}}>
       <AppButtonLog style={{backgroundColor:'#FFF'}} title="Patient " onPress={() => navigation.navigate('Test2')}/>
       <AppButtonLog style={{backgroundColor:'#FFF'}} title="Care Giver" onPress={() => navigation.navigate('Test3')}/>
       
@@ -215,7 +218,7 @@ function report({navigation}) {
 const Test1 = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Setting">
+      <Stack.Navigator initialRouteName="fun1">
         <Stack.Screen name="fun1" component={fun1} />
         <Stack.Screen name="fun2" component={fun2} />
         <Stack.Screen name="Test2" component={Test2} />

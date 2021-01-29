@@ -42,7 +42,7 @@ const AppButtonLog3 = ({ onPress,title }) => (
   <TouchableOpacity onPress={onPress} 
   style={{
   backgroundColor:'#66FFDA',marginTop:20, elevation:20,paddingVertical: 20,paddingHorizontal:10,marginVertical: 10}} >
-    <Text style={{color:'',fontSize:30,textAlign:'center'}}>{title}</Text>
+    <Text style={{fontSize:30,textAlign:'center'}}>{title}</Text>
   </TouchableOpacity>
 );
 export default Test2;

@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
  
 const Test4 = ({navigation}) => {
   return (
-    <View style={{ flex:1,alignItems:'center', backgroundColor: '#73C6B6' }}>
+    <View style={{ flex:1,alignItems:'center', backgroundColor: '#51DBA9' }}>
       
         <Text style={styles.MainText}> Wannasak </Text>
       <View style={{alignItems: 'center',flexDirection: 'row',justifyContent: 'space-evenly',width: '100%',}}>
@@ -30,7 +30,7 @@ const Test4 = ({navigation}) => {
       <View style={stylesMainPatient.paddd}>
 
           <Count title="50"></Count>
-          <View style={stylesMainPatient.verticalLine}></View>
+          
           <Count title="50"></Count>
               
       </View>
@@ -73,10 +73,11 @@ const AppButtonMainPatient = ({ onPress,title }) => (
     <Text style={{color:'#fff',fontSize:30,textAlign:'center'}}>{title}</Text>
   </TouchableOpacity>
 );
+
 const Count = ({ onPress,title }) => (
   <TouchableOpacity onPress={onPress} 
   style={{
-  backgroundColor:'#fff',marginTop:20, elevation:10,paddingVertical: 80,paddingHorizontal:50,marginVertical: 5,borderBottomColor:'#40E0D0',borderTopColor:'#40E0D0',borderStartColor:'#40E0D0',borderWidth:20}} >
+  backgroundColor:'#fff',marginTop:20, elevation:10,paddingVertical: 80,paddingHorizontal:50,marginVertical: 5,borderBottomColor:'#40E0D0',borderTopColor:'#40E0D0',borderStartColor:'#40E0D0',borderWidth:5}} >
     <Text style={{color:'#000',fontSize:50,textAlign:'center'}}>{title}</Text>
   </TouchableOpacity>
 );
