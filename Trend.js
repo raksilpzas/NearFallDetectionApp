@@ -4,6 +4,9 @@ import {NavigationContainer, createAppContainer, createNavigatorFactory} from '@
 import {createStackNavigator} from '@react-navigation/stack'
 import 'react-native-gesture-handler';
 import React from 'react'
+import { VictoryBar, VictoryChart, VictoryTheme } from "victory-native";
+
+
 //import Patient from './Patient'
 
 
@@ -15,17 +18,29 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+const data = [
+  { quarter: 1, earnings: 13000 },
+  { quarter: 2, earnings: 16500 },
+  { quarter: 3, earnings: 14250 },
+  { quarter: 4, earnings: 19000 }
+];
  
 const Trend = ({navigation}) => {
   return (
     <View style={{ flex:1,alignItems:'center', backgroundColor: '#73C6B6' }}>
       
         <Text style={styles.MainText}> Trend </Text>
+        <View style={{flex: 1,justifyContent: "center",alignItems: "center",backgroundColor: "#F1948A"}}>
+        <VictoryChart width={350} theme={VictoryTheme.material}>
+          <VictoryBar data={data} x="quarter" y="earnings" />
+        </VictoryChart>
+      </View>
       
                  
     </View>
   )
 };
+
 const AppButtonMainPatient = ({ onPress,title }) => (
   <TouchableOpacity onPress={onPress} 
   style={{

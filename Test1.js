@@ -1,11 +1,13 @@
 
-import { View, Text ,StyleSheet,Image, SafeAreaView ,Button,TouchableOpacity,TextInput,KeyboardAvoidingView,TouchableHighlight,Alert} from 'react-native'
+import { ActivityIndicator,View, Text ,StyleSheet,Image, SafeAreaView ,Button,TouchableOpacity,TextInput,KeyboardAvoidingView,TouchableHighlight,Alert} from 'react-native'
 import {ImageBackground,NavigationContainer, createAppContainer, createNavigatorFactory} from '@react-navigation/native'
 import {createStackNavigator} from '@react-navigation/stack'
 import 'react-native-gesture-handler';
 import React from 'react'
 
-import {SelectMultipleButton,SelectMultipleGroupButton} from "react-native-selectmultiple-button";
+
+
+
 
 import Test2 from './Test2'
 import Test3 from './Test3'
@@ -13,6 +15,7 @@ import Test4 from './Test4';
 import Trend from './Trend'
 import History from './History'
 import Setting from './Setting';
+import LOO from './LOO'
 
 
 //import Patient from './Patient'
@@ -43,7 +46,10 @@ function fun1({navigation}) {
           <Text style={{fontSize: 30}}>
             Detection {"\n"}Smart{"\n"}Home{"\n"}
           </Text>
+          
         </View>
+        
+        
         
       <View style={{flex:4,justifyContent:'center',alignItems:'center'}}>
           <AppButtonLog style={{backgroundColor:'#FFF'}} title="Login" onPress={() => navigation.navigate('fun2')}/>
@@ -92,9 +98,8 @@ function Loading({navigation}) {
     <View style={{flex:1,backgroundColor:'#8EDFC2',alignItems:'center',
   justifyContent:'center',}}>
     <Text style={{marginBottom:20 ,fontSize:30,fontWeight:'bold'}}>Loading Data ...</Text>
-    <View style={{alignItems:'center',
-  justifyContent:'center',}}>
-      <Image style ={{width: 100,height: 100,resizeMode: 'contain'}}source={require('./assets/loader.jpg')} /> 
+    <View style={{alignItems:'center',justifyContent:'center'}}>
+      <ActivityIndicator size="large" color="#000"/> 
       <Button title="next" onPress={() => navigation.navigate('Test4')}></Button>
     </View>
       
@@ -231,6 +236,7 @@ const Test1 = () => {
         <Stack.Screen name="Trend" component={Trend} />
         <Stack.Screen name="History" component={History} />
         <Stack.Screen name="Setting" component={Setting} />
+        <Stack.Screen name="LOO" component={LOO} />
       </Stack.Navigator>
     </NavigationContainer>
   );
