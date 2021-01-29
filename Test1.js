@@ -223,7 +223,7 @@ function report({navigation}) {
 const Test1 = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="fun1">
+      <Stack.Navigator initialRouteName="Trend">
         <Stack.Screen name="fun1" component={fun1} />
         <Stack.Screen name="fun2" component={fun2} />
         <Stack.Screen name="Test2" component={Test2} />

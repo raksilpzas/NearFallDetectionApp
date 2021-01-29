@@ -4,7 +4,7 @@ import {NavigationContainer, createAppContainer, createNavigatorFactory} from '@
 import {createStackNavigator} from '@react-navigation/stack'
 import 'react-native-gesture-handler';
 import React from 'react'
-import { VictoryBar, VictoryChart, VictoryTheme } from "victory-native";
+import { VictoryAxis, VictoryBar, VictoryChart, VictoryGroup, VictoryTheme } from "victory-native";
 
 
 //import Patient from './Patient'
@@ -18,21 +18,39 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
-const data = [
-  { quarter: 1, earnings: 13000 },
-  { quarter: 2, earnings: 16500 },
-  { quarter: 3, earnings: 14250 },
-  { quarter: 4, earnings: 19000 }
+const NearFall = [
+  { nearfall: "day1", earnings: 20 },
+  { nearfall: "day2", earnings: 5 },
+  { nearfall: "day3", earnings: 8 },
+  { nearfall: "day4", earnings: 10 }
 ];
- 
+
+const Fall = [
+  { fall: "day1", earnings: 1 },
+  { fall: "day2", earnings: 4 },
+  { fall: "day3", earnings: 5 },
+  { fall: "day4", earnings: 0 }
+];
+//theme={VictoryTheme.material} 
+//<VictoryBar data1={data1.nearfall} />
+//<VictoryBar data1={data1.fall} />
+//style={{ Fall: { fill: "#c43a31" }}}
 const Trend = ({navigation}) => {
   return (
     <View style={{ flex:1,alignItems:'center', backgroundColor: '#73C6B6' }}>
       
         <Text style={styles.MainText}> Trend </Text>
-        <View style={{flex: 1,justifyContent: "center",alignItems: "center",backgroundColor: "#F1948A"}}>
-        <VictoryChart width={350} theme={VictoryTheme.material}>
-          <VictoryBar data={data} x="quarter" y="earnings" />
+        <View style={{flex: 1,justifyContent: "center",alignItems: "center",backgroundColor: "#fff"}}>
+        <VictoryChart width={350} >
+            <VictoryAxis label="Count"/>
+            <VictoryAxis dependentAxis label="Day" />
+        
+          <VictoryGroup offset={10} >
+            <VictoryBar data={NearFall} x="nearfall" y="earnings" style={{data:{fill:'blue'}}} />
+            <VictoryBar data={Fall} x="fall" y="earnings" style={{data:{fill:'orange'}}} />
+          </VictoryGroup>
+        
+
         </VictoryChart>
       </View>
       
