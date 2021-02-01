@@ -15,16 +15,30 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
- 
+/*<TouchableOpacity activeOpacity = { .5 } onPress={() => navigation.navigate('Test4')}>
+<Image style={{flex:1,marginTop:10,resizeMode:'contain',height:30,width:30}} source={require('./assets/patient/heart.png')}/>
+<TouchableOpacity/>*/
 const Test4 = ({navigation}) => {
   return (
+    
     <View style={{ flex:1,alignItems:'center', backgroundColor: '#51DBA9' }}>
       
         <Text style={styles.MainText}> Wannasak </Text>
+        
+      
+      
+        
+        
+        
       <View style={{alignItems: 'center',flexDirection: 'row',justifyContent: 'space-evenly',width: '100%',}}>
-        <Image style={{flex:1,marginTop:10,resizeMode:'contain',height:30,width:30}} source={require('./assets/patient/heart.png')}/>
-        <Text style={{flex:4,marginLeft:40,fontSize:30,fontWeight:'bold',alignItems:'center',justifyContent:'center'}}> Assistance  </Text>
+        <TouchableOpacity activeOpacity = { .5 } onPress={() => navigation.navigate('HeartRate')}>
+              <Image  source={require('./assets/patient/heart.png')}  style = {{marginLeft:40,width:30,height:30}}/>   
+        </TouchableOpacity>
+          
+          <Text style={{flex:4,marginLeft:40,fontSize:30,fontWeight:'bold',alignItems:'center',justifyContent:'center'}}> Assistance  </Text>
       </View>
+      
+      
         
         <Text style={{textAlign:'center',color:'#fff',fontSize:20}}> Connected </Text>
       <View style={stylesMainPatient.paddd}>

@@ -1,10 +1,10 @@
 
-import { View, Text ,StyleSheet,Image, SafeAreaView ,Button,TouchableOpacity,TextInput,KeyboardAvoidingView,TouchableHighlight,Alert} from 'react-native'
+import { View, Text ,StyleSheet,Image, SafeAreaView ,Button,TouchableOpacity,TextInput,KeyboardAvoidingView,TouchableHighlight,Alert, Dimensions} from 'react-native'
 import {NavigationContainer, createAppContainer, createNavigatorFactory} from '@react-navigation/native'
 import {createStackNavigator} from '@react-navigation/stack'
 import 'react-native-gesture-handler';
 import React from 'react'
-import { VictoryAxis, VictoryBar, VictoryChart, VictoryGroup, VictoryTheme } from "victory-native";
+import { VictoryAxis, VictoryBar, VictoryChart, VictoryGroup, VictoryLegend, VictoryTheme } from "victory-native";
 
 
 //import Patient from './Patient'
@@ -39,19 +39,22 @@ const Trend = ({navigation}) => {
   return (
     <View style={{ flex:1,alignItems:'center', backgroundColor: '#73C6B6' }}>
       
-        <Text style={styles.MainText}> Trend </Text>
+        <Text style={{fontSize:50}}> Trend </Text>
         <View style={{flex: 1,justifyContent: "center",alignItems: "center",backgroundColor: "#fff"}}>
         <VictoryChart width={350} >
-            <VictoryAxis label="Count"/>
-            <VictoryAxis dependentAxis label="Day" />
+            <VictoryAxis label="Day"/>
+            <VictoryAxis dependentAxis label="Count" />
         
-          <VictoryGroup offset={10} >
+          <VictoryGroup offset={15} >
             <VictoryBar data={NearFall} x="nearfall" y="earnings" style={{data:{fill:'blue'}}} />
             <VictoryBar data={Fall} x="fall" y="earnings" style={{data:{fill:'orange'}}} />
           </VictoryGroup>
-        
-
         </VictoryChart>
+        
+          <VictoryLegend 
+          x={Dimensions.get('screen').width/2-50}
+           data={[{name:'NearFall',symbol:{fill:'blue',},},{name:'Fall',symbol:{fill:'orange',},},]} />
+         
       </View>
       
                  

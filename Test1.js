@@ -15,7 +15,9 @@ import Test4 from './Test4';
 import Trend from './Trend'
 import History from './History'
 import Setting from './Setting';
+
 import LOO from './LOO'
+import HeartRate from './HeartRate';
 
 
 //import Patient from './Patient'
@@ -33,21 +35,22 @@ const styles = StyleSheet.create({
 function fun1({navigation}) {
   return(
     <View style={{flex:1,backgroundColor:'#8EDFC2'}}  >
-      <Image  style={{flex: 1}} source={require('./assets/patient/wet-floor.png')} />      
-      <View style={{flex:1}}>
-        <Image style ={{width: 100,
-      height: 100,
+          
+      <View style={{flex:4}}>
+        <Image style ={{width: 500,
+      height: 500,
       resizeMode: 'contain'
         }}
       source={require('./assets/NFDicon.jpg')}/>
       </View>
 
-        <View style={{flex:4}}>
-          <Text style={{fontSize: 30}}>
-            Detection {"\n"}Smart{"\n"}Home{"\n"}
-          </Text>
+        
           
-        </View>
+          
+        
+        <TouchableOpacity activeOpacity = { .5 } onPress={() => navigation.navigate('Test4')}>
+        <Image  style={{flex: 1}} source={require('./assets/patient/wet-floor.png')}  style = {{width:250,height:44}}/>   
+        </TouchableOpacity>
         
         
         
@@ -223,7 +226,7 @@ function report({navigation}) {
 const Test1 = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Trend">
+      <Stack.Navigator initialRouteName="fun1">
         <Stack.Screen name="fun1" component={fun1} />
         <Stack.Screen name="fun2" component={fun2} />
         <Stack.Screen name="Test2" component={Test2} />
@@ -236,6 +239,7 @@ const Test1 = () => {
         <Stack.Screen name="Trend" component={Trend} />
         <Stack.Screen name="History" component={History} />
         <Stack.Screen name="Setting" component={Setting} />
+        <Stack.Screen name="HeartRate" component={HeartRate} />
         <Stack.Screen name="LOO" component={LOO} />
       </Stack.Navigator>
     </NavigationContainer>
