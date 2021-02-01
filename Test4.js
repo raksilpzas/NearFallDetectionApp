@@ -4,9 +4,9 @@ import {NavigationContainer, createAppContainer, createNavigatorFactory} from '@
 import {createStackNavigator} from '@react-navigation/stack'
 import 'react-native-gesture-handler';
 import React from 'react'
+import { createDrawerNavigator } from '@react-navigation/drawer';
 //import Patient from './Patient'
-
-
+const drawer = createDrawerNavigator();
  
 const styles = StyleSheet.create({
   container: {
@@ -15,9 +15,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
-/*<TouchableOpacity activeOpacity = { .5 } onPress={() => navigation.navigate('Test4')}>
-<Image style={{flex:1,marginTop:10,resizeMode:'contain',height:30,width:30}} source={require('./assets/patient/heart.png')}/>
-<TouchableOpacity/>*/
+
 const Test4 = ({navigation}) => {
   return (
     
@@ -32,15 +30,23 @@ const Test4 = ({navigation}) => {
         
       <View style={{alignItems: 'center',flexDirection: 'row',justifyContent: 'space-evenly',width: '100%',}}>
         <TouchableOpacity activeOpacity = { .5 } onPress={() => navigation.navigate('HeartRate')}>
-              <Image  source={require('./assets/patient/heart.png')}  style = {{marginLeft:40,width:30,height:30}}/>   
+              <Image  source={require('./assets/patient/heart.png')}  style = {{marginTop:10,marginLeft:20,width:30,height:30}}/>   
         </TouchableOpacity>
           
-          <Text style={{flex:4,marginLeft:40,fontSize:30,fontWeight:'bold',alignItems:'center',justifyContent:'center'}}> Assistance  </Text>
+          <Text style={{flex:4,marginLeft:60,fontSize:30,fontWeight:'bold',alignItems:'center',justifyContent:'center'}}> Assistance  </Text>
+        <TouchableOpacity activeOpacity = { .5 } onPress={() => navigation.navigate('Setting')}>
+              <Image  source={require('./assets/patient/sett.png')}  style = {{marginTop:10,marginRight:20,width:30,height:30}}/>   
+        </TouchableOpacity>
       </View>
       
       
         
         <Text style={{textAlign:'center',color:'#fff',fontSize:20}}> Connected </Text>
+      <View style={{paddingTop: 10,alignItems: 'center',flexDirection: 'row',justifyContent: 'space-evenly',width: '100%',marginBottom: 20}}>
+        <Text style={{fontSize:30,marginLeft:20}}>Fall</Text>
+        <Text style={{fontSize:30,marginLeft:80}}>Near Fall</Text>
+      </View>
+      
       <View style={stylesMainPatient.paddd}>
 
           <Count title="50"></Count>
@@ -53,7 +59,7 @@ const Test4 = ({navigation}) => {
       </View>   
       <View style={stylesMainPatient.paddd  }>
 
-        <TouchableOpacity onPress={() => navigation.navigate('Trend')} style={{ height: 90,width:170,backgroundColor:'#fff', borderStartColor:'##40E0D0',borderWidth:2  }}>
+        <TouchableOpacity onPress={() => navigation.navigate('Trend')} style={{ borderRadius: 40/2,height: 90,width:170,backgroundColor:'#fff', borderStartColor:'##40E0D0',borderWidth:2  }}>
           <View style={{flexDirection:'row'}}>
              <Image style ={{marginTop:30,marginLeft:10,width: 30,height: 30,resizeMode: 'contain'}}source={require('./assets/patient/bar-chart.png')}/>
       
@@ -65,7 +71,7 @@ const Test4 = ({navigation}) => {
           </View>
           
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('History')} style={{ height: 90,width:170,backgroundColor:'#fff', borderStartColor:'#000',borderWidth:2  }}>
+        <TouchableOpacity onPress={() => navigation.navigate('History')} style={{ borderRadius: 40/2,height: 90,width:170,backgroundColor:'#fff', borderStartColor:'#000',borderWidth:2  }}>
           <View style={{flexDirection:'row'}}>
              <Image style ={{marginTop:35, marginLeft:10 , width: 30,height: 30,resizeMode: 'contain'}}source={require('./assets/patient/clock.png')}/>
              <Text style={{fontSize:30,textAlign:'center',marginTop:25,marginLeft:10}}>History</Text>
@@ -82,7 +88,7 @@ const Test4 = ({navigation}) => {
 };
 const AppButtonMainPatient = ({ onPress,title }) => (
   <TouchableOpacity onPress={onPress} 
-  style={{
+  style={{ borderRadius: 40/2,
   backgroundColor:'#164D29',marginTop:20, elevation:20,paddingVertical: 20,paddingHorizontal:10,marginVertical: 10}} >
     <Text style={{color:'#fff',fontSize:30,textAlign:'center'}}>{title}</Text>
   </TouchableOpacity>
@@ -90,7 +96,7 @@ const AppButtonMainPatient = ({ onPress,title }) => (
 
 const Count = ({ onPress,title }) => (
   <TouchableOpacity onPress={onPress} 
-  style={{
+  style={{ borderRadius: 80/2,
   backgroundColor:'#fff',marginTop:20, elevation:10,paddingVertical: 80,paddingHorizontal:50,marginVertical: 5,borderBottomColor:'#40E0D0',borderTopColor:'#40E0D0',borderStartColor:'#40E0D0',borderWidth:5}} >
     <Text style={{color:'#000',fontSize:50,textAlign:'center'}}>{title}</Text>
   </TouchableOpacity>
@@ -98,7 +104,7 @@ const Count = ({ onPress,title }) => (
 
 const stylesMainPatient = StyleSheet.create({
   paddd: {
-    paddingTop: 20,
+    
     alignItems: 'center',
     flexDirection: 'row',
     justifyContent: 'space-evenly',

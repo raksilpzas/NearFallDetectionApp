@@ -12,6 +12,7 @@ import React from 'react'
 import Test2 from './Test2'
 import Test3 from './Test3'
 import Test4 from './Test4';
+//import Test5 from './Test5'
 import Trend from './Trend'
 import History from './History'
 import Setting from './Setting';
@@ -37,7 +38,7 @@ function fun1({navigation}) {
     <View style={{flex:1,backgroundColor:'#8EDFC2'}}  >
           
       <View style={{flex:4}}>
-        <Image style ={{width: 500,
+        <Image style ={{width: 400,
       height: 500,
       resizeMode: 'contain'
         }}
@@ -48,23 +49,30 @@ function fun1({navigation}) {
           
           
         
-        <TouchableOpacity activeOpacity = { .5 } onPress={() => navigation.navigate('Test4')}>
-        <Image  style={{flex: 1}} source={require('./assets/patient/wet-floor.png')}  style = {{width:250,height:44}}/>   
-        </TouchableOpacity>
+      
+        
         
         
         
       <View style={{flex:4,justifyContent:'center',alignItems:'center'}}>
+          <View style={{position:'absolute',width:162,height:162,left:10,top:5}}>
+              <Image   source={require('./assets/patient/wet-floor.png')}  style = {{opacity:0.1,marginLeft:80,width:250,height:204}}/>  
+          </View>
+      
           <AppButtonLog style={{backgroundColor:'#FFF'}} title="Login" onPress={() => navigation.navigate('fun2')}/>
           <AppButtonLog style={{backgroundColor:'#FFF'}} title="Sign Up" onPress={() => navigation.navigate('Test3')}/>
-        
+          
+         
       </View>
+      
+
+        
     </View>
   )  
 } 
 const AppButtonLog = ({ onPress, title }) => (
   <TouchableOpacity onPress={onPress} 
-  style={{
+  style={{ borderRadius: 40/2,
   backgroundColor:'#FFF',marginTop:20, elevation:20,paddingVertical: 20,paddingHorizontal:10,marginVertical: 10,width:300,resizeMode: 'contain'}} >
     <Text style={{color:'',fontSize:30,textAlign:'center'}}>{title}</Text>
   </TouchableOpacity>
@@ -73,20 +81,18 @@ const AppButtonLog = ({ onPress, title }) => (
 function fun2({navigation}) {
   return(
     <View style={{flex:1,backgroundColor:'#8EDFC2'}}  >
-    <View style={{flex:1}}>
-      <Image style ={{width: 100,
-    height: 100,
-    resizeMode: 'contain'
-  }}
-    source={require('./assets/NFDicon.jpg')}/>
-    </View>
     <View style={{flex:4}}>
-      <Text style={{fontSize: 30}}>
-        Detection {"\n"}Smart{"\n"}Home{"\n"}
-      </Text>
-      
-    </View>
+        <Image style ={{width: 400,
+      height: 500,
+      resizeMode: 'contain'
+        }}
+      source={require('./assets/NFDicon.jpg')}/>
+      </View>
+    
     <View style={{flex:4,justifyContent:'center',alignItems:'center'}}>
+    <View style={{position:'absolute',width:162,height:162,left:10,top:5}}>
+          <Image   source={require('./assets/patient/wet-floor.png')}  style = {{opacity:0.1,marginLeft:80,width:250,height:204}}/>  
+        </View>
       <AppButtonLog style={{backgroundColor:'#FFF'}} title="Patient " onPress={() => navigation.navigate('Test2')}/>
       <AppButtonLog style={{backgroundColor:'#FFF'}} title="Care Giver" onPress={() => navigation.navigate('Test3')}/>
       
@@ -119,14 +125,14 @@ function check({navigation}) {
       </Text>
     </View>
     <View style={{justifyContent:'center',alignItems:'center'}}>
-    <TouchableOpacity onPress={() => navigation.navigate('Type')} style={{ position:'absolute',width:339,height:170,left:37,top:107,backgroundColor:'#83E36B', borderStartColor:'#40E0D0',borderWidth:2  }} >
+    <TouchableOpacity onPress={() => navigation.navigate('Type')} style={{ borderRadius: 40/2,position:'absolute',width:339,height:170,left:37,top:107,backgroundColor:'#83E36B', borderStartColor:'#40E0D0',borderWidth:2  }} >
     <Image style ={{position:'absolute',width:162,height:162,left:90,top:5}}source={require('./assets/patient/check.png')}/>
     </TouchableOpacity>
       
 
     </View>
     <View style={{justifyContent:'center',alignItems:'center'}}>
-    <TouchableOpacity onPress={() => navigation.navigate('Test4')} style={{ position:'absolute',width:339,height:170,left:37,top:315,backgroundColor:'#F81919', borderStartColor:'#40E0D0',borderWidth:2  }}>
+    <TouchableOpacity onPress={() => navigation.navigate('Test4')} style={{borderRadius: 40/2, position:'absolute',width:339,height:170,left:37,top:315,backgroundColor:'#F81919', borderStartColor:'#40E0D0',borderWidth:2  }}>
     <Image style ={{position:'absolute',width:162,height:162,left:90,top:5}}source={require('./assets/patient/wrong.png')}/>
     </TouchableOpacity>
     
@@ -148,24 +154,24 @@ function Type({navigation}) {
     </View>
     
     <View style={{flex:2,justifyContent:'center',alignItems:'center'}}>
-    <TouchableOpacity onPress={() => navigation.navigate('Type')} style={{ position:'absolute',width:339,height:66,left:37,top:20,backgroundColor:'#fff', borderStartColor:'#40E0D0',borderWidth:2  }}>
+    <TouchableOpacity onPress={() => navigation.navigate('Type')} style={{ borderRadius: 40/2,position:'absolute',width:339,height:66,left:37,top:20,backgroundColor:'#fff', borderStartColor:'#40E0D0',borderWidth:2  }}>
         <Text style={{fontSize:30,textAlign:'center',marginTop:25,marginLeft:10}}>Fall</Text>
     </TouchableOpacity>
-    <TouchableOpacity onPress={() => navigation.navigate('Type')} style={{ position:'absolute',width:339,height:66,left:37,top:100,backgroundColor:'#fff', borderStartColor:'#40E0D0',borderWidth:2  }}>
+    <TouchableOpacity onPress={() => navigation.navigate('Type')} style={{ borderRadius: 40/2,position:'absolute',width:339,height:66,left:37,top:100,backgroundColor:'#fff', borderStartColor:'#40E0D0',borderWidth:2  }}>
         <Text style={{fontSize:30,textAlign:'center',marginTop:25,marginLeft:10}}>Near Fall</Text>
     </TouchableOpacity>
     </View>
     <View style={{flex:4,justifyContent:'center',alignItems:'center'}}>
-    <TouchableOpacity onPress={() => navigation.navigate('Type')} style={{ position:'absolute',width:339,height:66,left:37,top:0,backgroundColor:'#fff', borderStartColor:'#40E0D0',borderWidth:2  }}>
+    <TouchableOpacity onPress={() => navigation.navigate('Type')} style={{ borderRadius: 40/2,position:'absolute',width:339,height:66,left:37,top:0,backgroundColor:'#fff', borderStartColor:'#40E0D0',borderWidth:2  }}>
         <Text style={{fontSize:30,textAlign:'center',marginTop:25,marginLeft:10}}>Unhealty Body</Text>
     </TouchableOpacity>
-    <TouchableOpacity onPress={() => navigation.navigate('Type')} style={{ position:'absolute',width:339,height:66,left:37,top:80,backgroundColor:'#fff', borderStartColor:'#40E0D0',borderWidth:2  }}>
+    <TouchableOpacity onPress={() => navigation.navigate('Type')} style={{ borderRadius: 40/2,position:'absolute',width:339,height:66,left:37,top:80,backgroundColor:'#fff', borderStartColor:'#40E0D0',borderWidth:2  }}>
         <Text style={{fontSize:30,textAlign:'center',marginTop:25,marginLeft:10}}>Slip/Stumble</Text>
     </TouchableOpacity>
-    <TouchableOpacity onPress={() => navigation.navigate('Type')} style={{ position:'absolute',width:339,height:66,left:37,top:160,backgroundColor:'#fff', borderStartColor:'#40E0D0',borderWidth:2  }}>
+    <TouchableOpacity onPress={() => navigation.navigate('Type')} style={{ borderRadius: 40/2,position:'absolute',width:339,height:66,left:37,top:160,backgroundColor:'#fff', borderStartColor:'#40E0D0',borderWidth:2  }}>
         <Text style={{fontSize:30,textAlign:'center',marginTop:25,marginLeft:10}}>Drugs/Alchol</Text>
     </TouchableOpacity>
-    <TouchableOpacity onPress={() => navigation.navigate('Type')} style={{ position:'absolute',width:339,height:66,left:37,top:240,backgroundColor:'#fff', borderStartColor:'#40E0D0',borderWidth:2  }}>
+    <TouchableOpacity onPress={() => navigation.navigate('Type')} style={{borderRadius: 40/2, position:'absolute',width:339,height:66,left:37,top:240,backgroundColor:'#fff', borderStartColor:'#40E0D0',borderWidth:2  }}>
         <Text style={{fontSize:30,textAlign:'center',marginTop:25,marginLeft:10}}>Other Course</Text>
     </TouchableOpacity>
     </View>
@@ -178,7 +184,7 @@ function Type({navigation}) {
 }
 const AppButtonComfirm = ({ onPress,title }) => (
   <TouchableOpacity onPress={onPress} 
-  style={{
+  style={{borderRadius: 40/2,
   backgroundColor:'#66FFDA',marginTop:20, elevation:20,paddingVertical: 20,paddingHorizontal:10,marginVertical: 10}} >
     <Text style={{color:'',fontSize:30,textAlign:'center'}}>{title}</Text>
   </TouchableOpacity>
@@ -199,15 +205,15 @@ function report({navigation}) {
           />
       </View>
       <View style={{flex:2.7}}>
-      <TouchableOpacity onPress={() => navigation.navigate('Type')} style={{ position:'absolute',width:339,height:66,left:37,top:30,backgroundColor:'#66FFDA', borderStartColor:'#40E0D0',borderWidth:2  }}>
+      <TouchableOpacity onPress={() => navigation.navigate('Type')} style={{ borderRadius: 40/2,position:'absolute',width:339,height:66,left:37,top:30,backgroundColor:'#66FFDA', borderStartColor:'#40E0D0',borderWidth:2  }}>
         <Text style={{fontSize:30,textAlign:'center',marginTop:25,marginLeft:10}}>Wannasak</Text>
       </TouchableOpacity>
-      <TouchableOpacity onPress={() => navigation.navigate('Type')} style={{ position:'absolute',width:339,height:66,left:37,top:110,backgroundColor:'#66FFDA', borderStartColor:'#40E0D0',borderWidth:2  }}>
+      <TouchableOpacity onPress={() => navigation.navigate('Type')} style={{ borderRadius: 40/2,position:'absolute',width:339,height:66,left:37,top:110,backgroundColor:'#66FFDA', borderStartColor:'#40E0D0',borderWidth:2  }}>
         <Text style={{fontSize:30,textAlign:'center',marginTop:25,marginLeft:10}}>0924790943</Text>
       </TouchableOpacity>
       </View>
-      <View style={{flex:3.2,backgroundColor:'#8EDFC2'}}>
-      <TextInput style={{backgroundColor:'#8EDFC2',fontSize:30,paddingVertical:20}} placeholder="Detail...." placeholderTextColor="#808B96 "/>
+      <View style={{borderRadius: 40/2,flex:3.2,backgroundColor:'#8EDFC2'}}>
+      <TextInput style={{borderRadius: 40/2,backgroundColor:'#8EDFC2',fontSize:30,paddingVertical:20}} placeholder="Detail...." placeholderTextColor="#808B96 "/>
 
       </View>
     <View style={{}}>
@@ -232,6 +238,7 @@ const Test1 = () => {
         <Stack.Screen name="Test2" component={Test2} />
         <Stack.Screen name="Test3" component={Test3} />
         <Stack.Screen name="Test4" component={Test4} />
+        
         <Stack.Screen name="Loading" component={Loading} />
         <Stack.Screen name="check" component={check} />
         <Stack.Screen name="Type" component={Type} />

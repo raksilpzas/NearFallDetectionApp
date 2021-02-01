@@ -28,7 +28,7 @@ const Test3 = ({navigation}) => {
         <View style={{flex:4}}>
         
           <TextInput style={{backgroundColor:'#fff',fontSize:30,paddingVertical:20}} placeholder="Phone Number" placeholderTextColor="#808B96 "/>
-          <Button style={{backgroundColor:'#7FB3D5'}}title="Get code"/>
+          <Button style={{borderRadius: 40/2,backgroundColor:'#7FB3D5'}}title="Get code"/>
          <TextInput style={{backgroundColor:'#fff',fontSize:30,paddingVertical:20,marginTop:40}} placeholder="Verification Code" placeholderTextColor="#212F3D "/>
 
         </View>
@@ -41,7 +41,7 @@ const Test3 = ({navigation}) => {
 };
 const AppButtonLog3 = ({ onPress,title }) => (
   <TouchableOpacity onPress={onPress} 
-  style={{
+  style={{borderRadius: 40/2,
   backgroundColor:'#66FFDA',marginTop:20, elevation:20,paddingVertical: 20,paddingHorizontal:10,marginVertical: 10}} >
     <Text style={{color:'',fontSize:30,textAlign:'center'}}>{title}</Text>
   </TouchableOpacity>
