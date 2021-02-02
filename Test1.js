@@ -116,10 +116,14 @@ function Loading({navigation}) {
   
 }
 
-function check({navigation}) {
+function check({navigation,route}) {
+  const { itemId, otherParam } = route.params;
+
   return(
+
    <View style={{flex:1,backgroundColor:'#8EDFC2'}} >
     <View style={{justifyContent:'center',alignItems:'center'}}>
+      <Text style={{fontSize:40}}>otherParam: {JSON.stringify(otherParam)}</Text>
       <Text style={{fontSize:40}}>
         Are you falling?
       </Text>

@@ -15,8 +15,9 @@ const LOO =({navigation}) => {
   
 return(
   <View>
-    <Text>jgytf</Text>
+    
     <View>
+    <Text style={{fontSize:40}}>{navigation.params.paramKey}</Text>
         
         
       </View>

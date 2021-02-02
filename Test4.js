@@ -49,18 +49,25 @@ const Test4 = ({navigation}) => {
   const resetall =() =>{
     setvalue(nearfall==0),setcounter(fall==0)
   }
-  
+ 
   
   
 
- 
+  
   
   return (
     
     <View style={{ flex:1,alignItems:'center', backgroundColor: '#51DBA9' }}>
       
         <Text style={styles.MainText}> Wannasak </Text>
-        
+        <Button title="fwew" onPress={() => {
+          /* 1. Navigate to the Details route with params */
+          navigation.navigate('check', {
+            itemId: 86,
+            otherParam: 'anything you want here',
+          });
+        }}/>
+
       
       
         
