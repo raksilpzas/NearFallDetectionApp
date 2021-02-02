@@ -3,7 +3,7 @@ import { ActivityIndicator,View, Text ,StyleSheet,Image, SafeAreaView ,Button,To
 import {ImageBackground,NavigationContainer, createAppContainer, createNavigatorFactory} from '@react-navigation/native'
 import {createStackNavigator} from '@react-navigation/stack'
 import 'react-native-gesture-handler';
-import React from 'react'
+import React,{useState} from 'react'
 
 
 
@@ -143,8 +143,34 @@ function check({navigation}) {
   )
   
 }
-
+/*<Button title="Fall" onPress={increase}></Button>
+        <Button title="NearFall" onPress={increaser}></Button>
+        <Button title="reset" onPress={resete}></Button>
+        <Button title="resetNearfall" onPress={reset}></Button>
+        <Button title="resetALl" onPress={resetall}></Button>
+*/
 function Type({navigation}) {
+  const [fall, setcounter] = useState(0);
+  const [nearfall, setvalue] = useState(0);
+  const increase = () =>{
+    setcounter(fall+1)
+  }
+  const increaser =() =>{
+    setvalue(nearfall+1)
+  }
+  const decrease = () =>{
+    setcounter(fall-1)
+  }
+
+  const resete = () =>{
+    setcounter(fall == 0)
+  }
+  const reset = () =>{
+    setvalue(nearfall == 0)
+  }
+  const resetall =() =>{
+    setvalue(nearfall==0),setcounter(fall==0)
+  }
   return(
   <View style={{flex:1,backgroundColor:'#51DBA9'}}>
     <View style={{justifyContent:'center',alignItems:'center'}}>
@@ -154,10 +180,10 @@ function Type({navigation}) {
     </View>
     
     <View style={{flex:2,justifyContent:'center',alignItems:'center'}}>
-    <TouchableOpacity onPress={() => navigation.navigate('Type')} style={{ borderRadius: 40/2,position:'absolute',width:339,height:66,left:37,top:20,backgroundColor:'#fff', borderStartColor:'#40E0D0',borderWidth:2  }}>
+    <TouchableOpacity onPress={increase} style={{ borderRadius: 40/2,position:'absolute',width:339,height:66,left:37,top:20,backgroundColor:'#fff', borderStartColor:'#40E0D0',borderWidth:2  }}>
         <Text style={{fontSize:30,textAlign:'center',marginTop:25,marginLeft:10}}>Fall</Text>
     </TouchableOpacity>
-    <TouchableOpacity onPress={() => navigation.navigate('Type')} style={{ borderRadius: 40/2,position:'absolute',width:339,height:66,left:37,top:100,backgroundColor:'#fff', borderStartColor:'#40E0D0',borderWidth:2  }}>
+    <TouchableOpacity onPress={increaser} style={{ borderRadius: 40/2,position:'absolute',width:339,height:66,left:37,top:100,backgroundColor:'#fff', borderStartColor:'#40E0D0',borderWidth:2  }}>
         <Text style={{fontSize:30,textAlign:'center',marginTop:25,marginLeft:10}}>Near Fall</Text>
     </TouchableOpacity>
     </View>
@@ -232,7 +258,7 @@ function report({navigation}) {
 const Test1 = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="fun1">
+      <Stack.Navigator initialRouteName="Test4">
         <Stack.Screen name="fun1" component={fun1} />
         <Stack.Screen name="fun2" component={fun2} />
         <Stack.Screen name="Test2" component={Test2} />

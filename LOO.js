@@ -3,24 +3,27 @@ import { ActivityIndicator,View, Text ,StyleSheet,Image, SafeAreaView ,Button,To
 import {NavigationContainer, createAppContainer, createNavigatorFactory} from '@react-navigation/native'
 import {createStackNavigator} from '@react-navigation/stack'
 import 'react-native-gesture-handler';
-import React from 'react'
+import React,{useState} from 'react'
+import { set } from 'react-native-reanimated';
+import Test4 from './Test4'
+import { FlatList } from 'react-native-gesture-handler';
 //import Patient from './Patient'
 
 
  
-const LOO =() => {
-  const [isLoarding,setIsloading] = React.useState(true);
-  const [userToken,setUserToken] = React.useState(null);
+const LOO =({navigation}) => {
+  
+return(
+  <View>
+    <Text>jgytf</Text>
+    <View>
+        
+        
+      </View>
+  </View>
 
-if(isLoarding){
-  return(
-    <View style={{flex:1,justifyContent:'center',alignItems:'center',backgroundColor:'red'}}>
-      <ActivityIndicator size="large"/>
-      
-      
-    </View>
-  )
-}
+
+)
 }
 
 export default LOO;

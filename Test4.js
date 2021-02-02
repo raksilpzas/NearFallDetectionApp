@@ -3,11 +3,15 @@ import { View, Text ,StyleSheet,Image, SafeAreaView ,Button,TouchableOpacity,Tex
 import {NavigationContainer, createAppContainer, createNavigatorFactory} from '@react-navigation/native'
 import {createStackNavigator} from '@react-navigation/stack'
 import 'react-native-gesture-handler';
-import React from 'react'
+import React,{useState} from 'react'
 import { createDrawerNavigator } from '@react-navigation/drawer';
+import {fall,increase,increaser,nearfall,resetall} from './Test1'
+import LOO from './LOO'
+
+//import { CountUp } from 'react-countup'
 //import Patient from './Patient'
 const drawer = createDrawerNavigator();
- 
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -15,8 +19,42 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+/*<Button title="Fall" onPress={increase}></Button>
+        <Button title="NearFall" onPress={increaser}></Button>
+        <Button title="reset" onPress={resete}></Button>
+        <Button title="resetNearfall" onPress={reset}></Button>
+        <Button title="resetALl" onPress={resetall}></Button>
+*/
+
 
 const Test4 = ({navigation}) => {
+  const [fall, setcounter] = useState(0);
+  const [nearfall, setvalue] = useState(0);
+  const increase = () =>{
+    setcounter(fall+1)
+  }
+  const increaser =() =>{
+    setvalue(nearfall+1)
+  }
+  const decrease = () =>{
+    setcounter(fall-1)
+  }
+
+  const resete = () =>{
+    setcounter(fall == 0)
+  }
+  const reset = () =>{
+    setvalue(nearfall == 0)
+  }
+  const resetall =() =>{
+    setvalue(nearfall==0),setcounter(fall==0)
+  }
+  
+  
+  
+
+ 
+  
   return (
     
     <View style={{ flex:1,alignItems:'center', backgroundColor: '#51DBA9' }}>
@@ -41,7 +79,7 @@ const Test4 = ({navigation}) => {
       
       
         
-        <Text style={{textAlign:'center',color:'#fff',fontSize:20}}> Connected </Text>
+        
       <View style={{paddingTop: 10,alignItems: 'center',flexDirection: 'row',justifyContent: 'space-evenly',width: '100%',marginBottom: 20}}>
         <Text style={{fontSize:30,marginLeft:20}}>Fall</Text>
         <Text style={{fontSize:30,marginLeft:80}}>Near Fall</Text>
@@ -49,13 +87,24 @@ const Test4 = ({navigation}) => {
       
       <View style={stylesMainPatient.paddd}>
 
-          <Count title="50"></Count>
+          <Count title={fall+0}></Count>
           
-          <Count title="50"></Count>
+          <Count title={nearfall+0}></Count>
+          
+          
               
       </View>
       <View>
-        <AppButtonMainPatient title="Add Fall/Near Fall" onPress={() => navigation.navigate('check')}></AppButtonMainPatient>
+      <Button title="Fall" onPress={increase}></Button>
+        <Button title="NearFall" onPress={increaser}></Button>
+        <Button title="resetALl" onPress={resetall}></Button>
+        
+      </View>
+      
+
+      <View>
+      <AppButtonMainPatient title="Reset" onPress={resetall}></AppButtonMainPatient>
+        <AppButtonMainPatient title="Add Fall/Near Fall" onPress={() => navigation.navigate('LOO')}></AppButtonMainPatient>
       </View>   
       <View style={stylesMainPatient.paddd  }>
 
@@ -89,7 +138,7 @@ const Test4 = ({navigation}) => {
 const AppButtonMainPatient = ({ onPress,title }) => (
   <TouchableOpacity onPress={onPress} 
   style={{ borderRadius: 40/2,
-  backgroundColor:'#164D29',marginTop:20, elevation:20,paddingVertical: 20,paddingHorizontal:10,marginVertical: 10}} >
+  backgroundColor:'#164D29',marginTop:10, elevation:20,paddingVertical: 20,paddingHorizontal:10,marginVertical: 10}} >
     <Text style={{color:'#fff',fontSize:30,textAlign:'center'}}>{title}</Text>
   </TouchableOpacity>
 );
@@ -97,7 +146,7 @@ const AppButtonMainPatient = ({ onPress,title }) => (
 const Count = ({ onPress,title }) => (
   <TouchableOpacity onPress={onPress} 
   style={{ borderRadius: 80/2,
-  backgroundColor:'#fff',marginTop:20, elevation:10,paddingVertical: 80,paddingHorizontal:50,marginVertical: 5,borderBottomColor:'#40E0D0',borderTopColor:'#40E0D0',borderStartColor:'#40E0D0',borderWidth:5}} >
+  backgroundColor:'#fff',marginTop:10, elevation:10,paddingVertical: 70,paddingHorizontal:50,marginVertical: 5,borderBottomColor:'#40E0D0',borderTopColor:'#40E0D0',borderStartColor:'#40E0D0',borderWidth:5}} >
     <Text style={{color:'#000',fontSize:50,textAlign:'center'}}>{title}</Text>
   </TouchableOpacity>
 );
@@ -126,6 +175,6 @@ const stylesMainPatient = StyleSheet.create({
   }
 
 });
- 
 export default Test4;
 
+ 
