@@ -116,20 +116,21 @@ function Loading({navigation}) {
   
 }
 
-function check({navigation,route}) {
-  const { itemId, otherParam } = route.params;
+function check({navigation,route,route2}) {
+
+  const { countNumber,Nearfall} = route.params;
+  
 
   return(
 
    <View style={{flex:1,backgroundColor:'#8EDFC2'}} >
     <View style={{justifyContent:'center',alignItems:'center'}}>
-      <Text style={{fontSize:40}}>otherParam: {JSON.stringify(otherParam)}</Text>
       <Text style={{fontSize:40}}>
         Are you falling?
       </Text>
     </View>
     <View style={{justifyContent:'center',alignItems:'center'}}>
-    <TouchableOpacity onPress={() => navigation.navigate('Type')} style={{ borderRadius: 40/2,position:'absolute',width:339,height:170,left:37,top:107,backgroundColor:'#83E36B', borderStartColor:'#40E0D0',borderWidth:2  }} >
+    <TouchableOpacity onPress={() => navigation.navigate('Type',{countNumber,Nearfall})} style={{ borderRadius: 40/2,position:'absolute',width:339,height:170,left:37,top:107,backgroundColor:'#83E36B', borderStartColor:'#40E0D0',borderWidth:2  }} >
     <Image style ={{position:'absolute',width:162,height:162,left:90,top:5}}source={require('./assets/patient/check.png')}/>
     </TouchableOpacity>
       
@@ -153,28 +154,8 @@ function check({navigation,route}) {
         <Button title="resetNearfall" onPress={reset}></Button>
         <Button title="resetALl" onPress={resetall}></Button>
 */
-function Type({navigation}) {
-  const [fall, setcounter] = useState(0);
-  const [nearfall, setvalue] = useState(0);
-  const increase = () =>{
-    setcounter(fall+1)
-  }
-  const increaser =() =>{
-    setvalue(nearfall+1)
-  }
-  const decrease = () =>{
-    setcounter(fall-1)
-  }
-
-  const resete = () =>{
-    setcounter(fall == 0)
-  }
-  const reset = () =>{
-    setvalue(nearfall == 0)
-  }
-  const resetall =() =>{
-    setvalue(nearfall==0),setcounter(fall==0)
-  }
+function Type({navigation,route,route2}) {
+  const { countNumber,Nearfall} = route.params;
   return(
   <View style={{flex:1,backgroundColor:'#51DBA9'}}>
     <View style={{justifyContent:'center',alignItems:'center'}}>
@@ -184,10 +165,11 @@ function Type({navigation}) {
     </View>
     
     <View style={{flex:2,justifyContent:'center',alignItems:'center'}}>
-    <TouchableOpacity onPress={increase} style={{ borderRadius: 40/2,position:'absolute',width:339,height:66,left:37,top:20,backgroundColor:'#fff', borderStartColor:'#40E0D0',borderWidth:2  }}>
+    
+    <TouchableOpacity onPress={() =>navigation.push('Type', {countNumber:countNumber+1})} style={{ borderRadius: 40/2,position:'absolute',width:339,height:66,left:37,top:20,backgroundColor:'#fff', borderStartColor:'#40E0D0',borderWidth:2  }}>
         <Text style={{fontSize:30,textAlign:'center',marginTop:25,marginLeft:10}}>Fall</Text>
     </TouchableOpacity>
-    <TouchableOpacity onPress={increaser} style={{ borderRadius: 40/2,position:'absolute',width:339,height:66,left:37,top:100,backgroundColor:'#fff', borderStartColor:'#40E0D0',borderWidth:2  }}>
+    <TouchableOpacity onPress={() =>navigation.push('Type', {Nearfall:Nearfall+1})} style={{ borderRadius: 40/2,position:'absolute',width:339,height:66,left:37,top:100,backgroundColor:'#fff', borderStartColor:'#40E0D0',borderWidth:2  }}>
         <Text style={{fontSize:30,textAlign:'center',marginTop:25,marginLeft:10}}>Near Fall</Text>
     </TouchableOpacity>
     </View>
@@ -206,7 +188,7 @@ function Type({navigation}) {
     </TouchableOpacity>
     </View>
     <View>
-    <AppButtonComfirm  title="Comfirm" onPress={() => navigation.navigate('report')} />
+    <AppButtonComfirm  title="Comfirm" onPress={() => navigation.navigate('report',{countNumber,Nearfall})} />
     </View>
   </View>
   )
@@ -220,12 +202,13 @@ const AppButtonComfirm = ({ onPress,title }) => (
   </TouchableOpacity>
 );
 
-function report({navigation}) {
+function report({navigation,route,route2}) {
+  const { countNumber,Nearfall} = route.params;
   return(
     <View style={{flex:1}}>
       <View style={{flex:1.7,justifyContent:'center',alignItems:'center'}}>
         <Text style={{fontSize:30}}>
-          Report
+          Report  {JSON.stringify(countNumber)}
         </Text>
         <Image
           style={{width: 120,height:120,borderRadius: 300/2}}
@@ -246,8 +229,8 @@ function report({navigation}) {
       <TextInput style={{borderRadius: 40/2,backgroundColor:'#8EDFC2',fontSize:30,paddingVertical:20}} placeholder="Detail...." placeholderTextColor="#808B96 "/>
 
       </View>
-    <View style={{}}>
-    <AppButtonComfirm  title="Summit" onPress={() => navigation.navigate('Test4')} />
+    <View >
+    <AppButtonComfirm  title="Summit" onPress={() => navigation.navigate('Test4',{countNumber,Nearfall})} />
     </View>
     </View>
 
@@ -262,7 +245,7 @@ function report({navigation}) {
 const Test1 = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Test4">
+      <Stack.Navigator initialRouteName="fun1">
         <Stack.Screen name="fun1" component={fun1} />
         <Stack.Screen name="fun2" component={fun2} />
         <Stack.Screen name="Test2" component={Test2} />

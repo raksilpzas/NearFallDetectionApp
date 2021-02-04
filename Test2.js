@@ -26,12 +26,12 @@ const Test2 = ({navigation}) => {
       </View>
         <View style={{flex:4}}>
         
-          <TextInput style={{backgroundColor:'#fff',fontSize:30,paddingVertical:20}} placeholder="Phone Number" placeholderTextColor="#808B96 "/>
+          <TextInput style={{placeholderTextColor:'#808B96',backgroundColor:'#fff',fontSize:30,paddingVertical:20}} placeholder="Phone Number" />
           <Button style={{borderRadius: 40/2,backgroundColor:'#7FB3D5'}}title="Get code"/>
-         <TextInput style={{backgroundColor:'#fff',fontSize:30,paddingVertical:20,marginTop:40}} placeholder="Verification Code" placeholderTextColor="#212F3D "/>
+         <TextInput style={{placeholderTextColor:'#808B96',backgroundColor:'#fff',fontSize:30,paddingVertical:20,marginTop:40}} placeholder="Verification Code"/>
 
         </View>
-          <AppButtonLog3 title="Login" onPress={() => navigation.navigate('Test4')}/*onPress={() => navigation.navigate('home')}*/ />
+          <AppButtonLog3 title="Login" onPress={() => navigation.navigate('Test4',{countNumber:+0,Nearfall:+0})} />
         
       <View>
       </View>

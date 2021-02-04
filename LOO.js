@@ -11,15 +11,18 @@ import { FlatList } from 'react-native-gesture-handler';
 
 
  
-const LOO =({navigation}) => {
+const LOO =({navigation,route}) => {
+  const { itemId, otherParam } = route.params;
+  const [game,setcounter] = useState(otherParam)
+  const increase = () =>{
+    setcounter(game+1)
+  }
   
 return(
   <View>
     
     <View>
-    <Text style={{fontSize:40}}>{navigation.params.paramKey}</Text>
-        
-        
+      <Text style={{fontSize:40}}>game: {game+0}</Text>   
       </View>
   </View>
 

@@ -27,8 +27,8 @@ const styles = StyleSheet.create({
 */
 
 
-const Test4 = ({navigation}) => {
-  const [fall, setcounter] = useState(0);
+const Test4 = ({navigation,route,route2}) => {
+  const [fall, setcounter] = useState(10);
   const [nearfall, setvalue] = useState(0);
   const increase = () =>{
     setcounter(fall+1)
@@ -49,30 +49,13 @@ const Test4 = ({navigation}) => {
   const resetall =() =>{
     setvalue(nearfall==0),setcounter(fall==0)
   }
- 
-  
-  
-
-  
-  
+  const { countNumber} = route.params;
+  const { Nearfall} = route.params;
   return (
     
     <View style={{ flex:1,alignItems:'center', backgroundColor: '#51DBA9' }}>
-      
+        
         <Text style={styles.MainText}> Wannasak </Text>
-        <Button title="fwew" onPress={() => {
-          /* 1. Navigate to the Details route with params */
-          navigation.navigate('check', {
-            itemId: 86,
-            otherParam: 'anything you want here',
-          });
-        }}/>
-
-      
-      
-        
-        
-        
       <View style={{alignItems: 'center',flexDirection: 'row',justifyContent: 'space-evenly',width: '100%',}}>
         <TouchableOpacity activeOpacity = { .5 } onPress={() => navigation.navigate('HeartRate')}>
               <Image  source={require('./assets/patient/heart.png')}  style = {{marginTop:10,marginLeft:20,width:30,height:30}}/>   
@@ -94,24 +77,16 @@ const Test4 = ({navigation}) => {
       
       <View style={stylesMainPatient.paddd}>
 
-          <Count title={fall+0}></Count>
+          <Count title={JSON.stringify(countNumber+0)}></Count>
           
-          <Count title={nearfall+0}></Count>
+          <Count title={JSON.stringify(countNumber+0)}></Count>
           
           
               
       </View>
       <View>
-      <Button title="Fall" onPress={increase}></Button>
-        <Button title="NearFall" onPress={increaser}></Button>
-        <Button title="resetALl" onPress={resetall}></Button>
-        
-      </View>
-      
-
-      <View>
-      <AppButtonMainPatient title="Reset" onPress={resetall}></AppButtonMainPatient>
-        <AppButtonMainPatient title="Add Fall/Near Fall" onPress={() => navigation.navigate('LOO')}></AppButtonMainPatient>
+      <AppButtonMainPatient title="Reset" onPress={() =>navigation.push('Test4', {countNumber:countNumber-countNumber})}></AppButtonMainPatient>
+        <AppButtonMainPatient title="Add Fall/Near Fall" onPress={() => navigation.navigate('check',{countNumber,Nearfall})}></AppButtonMainPatient>
       </View>   
       <View style={stylesMainPatient.paddd  }>
 
