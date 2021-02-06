@@ -1,9 +1,10 @@
 
-import { ActivityIndicator,View, Text ,StyleSheet,Image, SafeAreaView ,Button,TouchableOpacity,TextInput,KeyboardAvoidingView,TouchableHighlight,Alert} from 'react-native'
+import { ScrollView,ActivityIndicator,View, Text ,StyleSheet,Image, SafeAreaView ,Button,TouchableOpacity,TextInput,KeyboardAvoidingView,TouchableHighlight,Alert} from 'react-native'
 import {ImageBackground,NavigationContainer, createAppContainer, createNavigatorFactory} from '@react-navigation/native'
 import {createStackNavigator} from '@react-navigation/stack'
 import 'react-native-gesture-handler';
 import React,{useState} from 'react'
+import { FloatingLabelInput } from 'react-native-floating-label-input';
 
 
 
@@ -202,10 +203,13 @@ const AppButtonComfirm = ({ onPress,title }) => (
   </TouchableOpacity>
 );
 
-function report({navigation,route,route2}) {
+function report({navigation,route}) {
+  
   const { countNumber,Nearfall} = route.params;
   return(
+    
     <View style={{flex:1}}>
+
       <View style={{flex:1.7,justifyContent:'center',alignItems:'center'}}>
         <Text style={{fontSize:30}}>
           Report  {JSON.stringify(countNumber)}
