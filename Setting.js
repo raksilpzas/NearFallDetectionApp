@@ -72,7 +72,7 @@ const Setting = ({navigation}) => {
       </View>
         <View style={{ borderBottomColor: 'black', borderBottomWidth: 2,flexDirection:'row'}}/>
         
-        <TouchableOpacity onPress={() => navigation.navigate('fun1')} style={{ flex: 1,justifyContent: 'flex-end',marginTop:20,marginBottom: 36,width:200,backgroundColor:'#EF8F8F', borderStartColor:'#EF8F8F',borderWidth:2  }}>
+        <TouchableOpacity onPress={() => navigation.navigate('fun2')} style={{ flex: 1,justifyContent: 'flex-end',marginTop:20,marginBottom: 36,width:200,backgroundColor:'#EF8F8F', borderStartColor:'#EF8F8F',borderWidth:2  }}>
           <Image style ={{marginVertical:-45, marginLeft:5 ,marginRight:10,width: 40,height: 40,resizeMode: 'contain'}}source={require('./assets/patient/arrow.png')}/>
           <Text style={{fontSize:30,marginLeft:30,textAlign:'center',marginBottom:20}}>Logout</Text>
         </TouchableOpacity>

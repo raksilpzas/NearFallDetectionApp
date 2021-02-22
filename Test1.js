@@ -126,14 +126,16 @@ function Care({navigation}) {
 function Addpatient({navigation}) {
   return(
     <View style={{flex:1,backgroundColor:'#EF8F8F'}}  >
+      
   
     
     <View style={{flex:4,justifyContent:'center',alignItems:'center'}}>
+    <Text style={{fontSize:40,fontWeight:'bold'}}>Care giver</Text>
     <View style={{position:'absolute',width:162,height:162,left:10,top:30}}>
           <Image   source={require('./assets/patient/wet-floor.png')}  style = {{opacity:0.1,marginLeft:80,width:250,height:204}}/>  
         </View>
-      <AppButtonLog style={{backgroundColor:'#FFF'}} title="Patient " onPress={() => navigation.navigate('Test4Care',{countNumber:+0,Nearfall:+0})}/>
-      <AppButtonLog style={{backgroundColor:'#FFF'}} title="Add patient" onPress={() => navigation.navigate('Test4Care',{countNumber:+0,Nearfall:+0})}/>
+      <AppButtonLog style={{backgroundColor:'#FFF'}} title="Patient " onPress={() => navigation.navigate('Selectpatient')}/>
+      <AppButtonLog style={{backgroundColor:'#FFF'}} title="Add patient" onPress={() => navigation.navigate('Selectpatient')}/>
       
     </View>
   </View>
@@ -194,7 +196,7 @@ function check({navigation,route,route2}) {
         <Button title="resetNearfall" onPress={reset}></Button>
         <Button title="resetALl" onPress={resetall}></Button>
 */
-function Type({navigation,route,route2}) {
+function Type({navigation,route}) {
   const { countNumber,Nearfall} = route.params;
   return(
   <View style={{flex:1,backgroundColor:'#51DBA9'}}>
@@ -241,6 +243,35 @@ const AppButtonComfirm = ({ onPress,title }) => (
     <Text style={{color:'',fontSize:30,textAlign:'center'}}>{title}</Text>
   </TouchableOpacity>
 );
+function Selectpatient({navigation,route}) {
+  
+  return(
+  <View style={{flex:1,backgroundColor:'#E4A8AE'}}>
+    <View style={{justifyContent:'center',alignItems:'center'}}>
+      <Text style={{fontSize:30}}>
+          Patients
+      </Text>
+    </View>
+    
+    <View style={{flex:2,justifyContent:'center',alignItems:'center'}}>
+      <TouchableOpacity onPress={() =>navigation.navigate('Test4Care',{countNumber:+0,Nearfall:+0})} style={{ borderRadius: 40/2,position:'absolute',width:339,height:66,left:37,top:20,backgroundColor:'#fff', borderStartColor:'#40E0D0',borderWidth:2  }}>
+            <Text style={{fontSize:30,textAlign:'center',marginTop:25,marginLeft:10}}>1. Wannasak penjakul</Text>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={() =>navigation.navigate('Test4Care',{countNumber:+0,Nearfall:+0})} style={{ borderRadius: 40/2,position:'absolute',width:339,height:66,left:37,top:120,backgroundColor:'#fff', borderStartColor:'#40E0D0',borderWidth:2  }}>
+            <Text style={{fontSize:30,textAlign:'center',marginTop:25,marginLeft:10}}>2. Wannasak penjakul</Text>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={() =>navigation.navigate('Test4Care',{countNumber:+0,Nearfall:+0})} style={{ borderRadius: 40/2,position:'absolute',width:339,height:66,left:37,top:220,backgroundColor:'#fff', borderStartColor:'#40E0D0',borderWidth:2  }}>
+            <Text style={{fontSize:30,textAlign:'center',marginTop:25,marginLeft:10}}>3. Raksilp Chotemogko</Text>
+      </TouchableOpacity>
+    
+    </View>
+   
+    
+  </View>
+  )
+ 
+}
+
 
 function report({navigation,route}) {
   
@@ -309,6 +340,7 @@ const Test1 = () => {
         <Stack.Screen name="Test4Care" component={Test4Care} />
         <Stack.Screen name="Care" component={Care} />
         <Stack.Screen name="Addpatient" component={Addpatient} />
+        <Stack.Screen name="Selectpatient" component={Selectpatient} />
       </Stack.Navigator>
     </NavigationContainer>
   );
