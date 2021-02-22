@@ -60,7 +60,7 @@ function fun1({navigation}) {
               <Image   source={require('./assets/patient/wet-floor.png')}  style = {{opacity:0.1,marginLeft:80,width:250,height:204}}/>  
           </View>
       
-          <AppButtonLog style={{backgroundColor:'#FFF'}} title="Login" onPress={() => navigation.navigate('fun2')}/>
+          <AppButtonLog style={{backgroundColor:'#FFF'}} title="Login" onPress={() => navigation.navigate('Test2')}/>
           <AppButtonLog style={{backgroundColor:'#FFF'}} title="Sign Up" onPress={() => navigation.navigate('Test3')}/>
           
          
@@ -94,8 +94,8 @@ function fun2({navigation}) {
     <View style={{position:'absolute',width:162,height:162,left:10,top:5}}>
           <Image   source={require('./assets/patient/wet-floor.png')}  style = {{opacity:0.1,marginLeft:80,width:250,height:204}}/>  
         </View>
-      <AppButtonLog style={{backgroundColor:'#FFF'}} title="Patient " onPress={() => navigation.navigate('Test2')}/>
-      <AppButtonLog style={{backgroundColor:'#FFF'}} title="Care Giver" onPress={() => navigation.navigate('Test3')}/>
+      <AppButtonLog style={{backgroundColor:'#FFF'}} title="Patient " onPress={() => navigation.navigate('fun1')}/>
+      <AppButtonLog style={{backgroundColor:'#FFF'}} title="Care Giver" onPress={() => navigation.navigate('fun1')}/>
       
     </View>
   </View>
@@ -249,7 +249,7 @@ function report({navigation,route}) {
 const Test1 = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="fun1">
+      <Stack.Navigator initialRouteName="fun2">
         <Stack.Screen name="fun1" component={fun1} />
         <Stack.Screen name="fun2" component={fun2} />
         <Stack.Screen name="Test2" component={Test2} />

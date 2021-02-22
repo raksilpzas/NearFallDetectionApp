@@ -33,7 +33,7 @@ const Test2 = ({navigation}) => {
       <View style={{flex:1,marginTop:-30}}>
         
         <Text style={{color:'#fff',fontWeight:'bold',fontStyle:'italic',fontSize:40,textAlign:'center'}}>
-        Sign In
+        Log In
         </Text>
         
         
