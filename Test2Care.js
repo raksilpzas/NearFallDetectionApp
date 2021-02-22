@@ -18,14 +18,14 @@ const styles = StyleSheet.create({
   },
 });
  
-const TestLogCare = ({navigation}) => {
+const Test2Care = ({navigation}) => {
   const [phone, setPhone] = useState('');
   const [pass, setPass] = useState('');
 
   
 
   return (
-    <View style={{padding: 50,flex:1 ,backgroundColor:'#8EDFC2'}}>
+    <View style={{padding: 50,flex:1 ,backgroundColor:'#E4A8AE'}}>
       
       
      
@@ -33,7 +33,7 @@ const TestLogCare = ({navigation}) => {
       <View style={{flex:1,marginTop:-30}}>
         
         <Text style={{color:'#fff',fontWeight:'bold',fontStyle:'italic',fontSize:40,textAlign:'center'}}>
-        Sign In
+        Log In
         </Text>
         
         
@@ -69,7 +69,7 @@ const TestLogCare = ({navigation}) => {
           
         }}
         labelStyles={{
-          backgroundColor: '#8EDFC2',
+          backgroundColor: '#E4A8AE',
           paddingHorizontal: 1,
           
         }}
@@ -108,7 +108,7 @@ const TestLogCare = ({navigation}) => {
           borderColor: '#fff'
         }}
         labelStyles={{
-          backgroundColor: '#8EDFC2',
+          backgroundColor: '#E4A8AE',
           paddingHorizontal: 1,
         }}
         inputStyles={{
@@ -132,7 +132,7 @@ const TestLogCare = ({navigation}) => {
             
 
         </View>
-          <AppButtonLog3 title="Login" onPress={() => navigation.navigate('Test4',{countNumber:+0,Nearfall:+0})} />
+          <AppButtonLog3 title="Login" onPress={() => navigation.navigate('Addpatient')} />
         
           <View style={{position:'absolute',width:162,height:162,left:10,top:400}}>
               <Image   source={require('./assets/patient/wet-floor.png')}  style = {{opacity:0.1,marginLeft:80,width:250,height:204}}/>  
@@ -144,8 +144,8 @@ const TestLogCare = ({navigation}) => {
 const AppButtonLog3 = ({ onPress,title }) => (
   <TouchableOpacity onPress={onPress} 
   style={{borderRadius: 40/2,
-  backgroundColor:'#66FFDA',marginTop:20, elevation:20,paddingVertical: 20,paddingHorizontal:10,marginVertical: 10}} >
+  backgroundColor:'#EF8F8F',marginTop:20, elevation:20,paddingVertical: 20,paddingHorizontal:10,marginVertical: 10}} >
     <Text style={{fontSize:30,textAlign:'center'}}>{title}</Text>
   </TouchableOpacity>
 );
-export default TestLogCare;
+export default Test2Care;

@@ -20,6 +20,10 @@ import Setting from './Setting';
 
 import LOO from './LOO'
 import HeartRate from './HeartRate';
+import Test3Care from './Test3Care';
+import Test2Care from './Test2Care';
+import Test4Care from './Test4Care';
+
 
 
 //import Patient from './Patient'
@@ -43,18 +47,10 @@ function fun1({navigation}) {
       height: 500,
       resizeMode: 'contain'
         }}
-      source={require('./assets/NFDicon.jpg')}/>
-      </View>
-
-        
+      source={require('./assets/Falling_Diary.png')}/>
+      </View>         
           
           
-        
-      
-        
-        
-        
-        
       <View style={{flex:4,justifyContent:'center',alignItems:'center'}}>
           <View style={{position:'absolute',width:162,height:162,left:10,top:5}}>
               <Image   source={require('./assets/patient/wet-floor.png')}  style = {{opacity:0.1,marginLeft:80,width:250,height:204}}/>  
@@ -87,7 +83,7 @@ function fun2({navigation}) {
       height: 500,
       resizeMode: 'contain'
         }}
-      source={require('./assets/NFDicon.jpg')}/>
+      source={require('./assets/Falling_Diary.png')}/>
       </View>
     
     <View style={{flex:4,justifyContent:'center',alignItems:'center'}}>
@@ -95,13 +91,56 @@ function fun2({navigation}) {
           <Image   source={require('./assets/patient/wet-floor.png')}  style = {{opacity:0.1,marginLeft:80,width:250,height:204}}/>  
         </View>
       <AppButtonLog style={{backgroundColor:'#FFF'}} title="Patient " onPress={() => navigation.navigate('fun1')}/>
-      <AppButtonLog style={{backgroundColor:'#FFF'}} title="Care Giver" onPress={() => navigation.navigate('fun1')}/>
+      <AppButtonLog style={{backgroundColor:'#FFF'}} title="Care Giver" onPress={() => navigation.navigate('Care')}/>
       
     </View>
   </View>
   )
   
 }
+
+function Care({navigation}) {
+  return(
+    <View style={{flex:1,backgroundColor:'#EF8F8F'}}  >
+    <View style={{flex:4}}>
+        <Image style ={{width: 400,
+      height: 500,
+      resizeMode: 'contain'
+        }}
+      source={require('./assets/Falling_Diary.png')}/>
+      </View>
+    
+    <View style={{flex:4,justifyContent:'center',alignItems:'center'}}>
+    <View style={{position:'absolute',width:162,height:162,left:10,top:30}}>
+          <Image   source={require('./assets/patient/wet-floor.png')}  style = {{opacity:0.1,marginLeft:80,width:250,height:204}}/>  
+        </View>
+      <AppButtonLog style={{backgroundColor:'#FFF'}} title="Login " onPress={() => navigation.navigate('Test2Care')}/>
+      <AppButtonLog style={{backgroundColor:'#FFF'}} title="Sign Up" onPress={() => navigation.navigate('Test3Care')}/>
+      
+    </View>
+  </View>
+  )
+  
+}
+
+function Addpatient({navigation}) {
+  return(
+    <View style={{flex:1,backgroundColor:'#EF8F8F'}}  >
+  
+    
+    <View style={{flex:4,justifyContent:'center',alignItems:'center'}}>
+    <View style={{position:'absolute',width:162,height:162,left:10,top:30}}>
+          <Image   source={require('./assets/patient/wet-floor.png')}  style = {{opacity:0.1,marginLeft:80,width:250,height:204}}/>  
+        </View>
+      <AppButtonLog style={{backgroundColor:'#FFF'}} title="Patient " onPress={() => navigation.navigate('Test4Care',{countNumber:+0,Nearfall:+0})}/>
+      <AppButtonLog style={{backgroundColor:'#FFF'}} title="Add patient" onPress={() => navigation.navigate('Test4Care',{countNumber:+0,Nearfall:+0})}/>
+      
+    </View>
+  </View>
+  )
+  
+}
+
 
 function Loading({navigation}) {
   return(
@@ -265,6 +304,11 @@ const Test1 = () => {
         <Stack.Screen name="Setting" component={Setting} />
         <Stack.Screen name="HeartRate" component={HeartRate} />
         <Stack.Screen name="LOO" component={LOO} />
+        <Stack.Screen name="Test2Care" component={Test2Care} />
+        <Stack.Screen name="Test3Care" component={Test3Care} />
+        <Stack.Screen name="Test4Care" component={Test4Care} />
+        <Stack.Screen name="Care" component={Care} />
+        <Stack.Screen name="Addpatient" component={Addpatient} />
       </Stack.Navigator>
     </NavigationContainer>
   );
