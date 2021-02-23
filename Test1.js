@@ -130,12 +130,31 @@ function Addpatient({navigation}) {
   
     
     <View style={{flex:4,justifyContent:'center',alignItems:'center'}}>
-    <Text style={{fontSize:40,fontWeight:'bold'}}>Care giver</Text>
+      
+    
+    
+    
     <View style={{position:'absolute',width:162,height:162,left:10,top:30}}>
           <Image   source={require('./assets/patient/wet-floor.png')}  style = {{opacity:0.1,marginLeft:80,width:250,height:204}}/>  
-        </View>
-      <AppButtonLog style={{backgroundColor:'#FFF'}} title="Patient " onPress={() => navigation.navigate('Selectpatient')}/>
-      <AppButtonLog style={{backgroundColor:'#FFF'}} title="Add patient" onPress={() => navigation.navigate('Selectpatient')}/>
+    </View>
+
+    <View style={{justifyContent:'center',alignItems:'center'}}>
+    
+        <TouchableOpacity  onPress={() => navigation.navigate('Type',{countNumber,Nearfall})} style={{ borderRadius: 40/2,position:'absolute',width:350,height:140,top:-300,justifyContent:'center',alignItems:'center',backgroundColor:'#4CBFD9', borderStartColor:'#40E0D0',borderWidth:2  }} >
+          <Text style={{fontSize:30}}>Patients</Text>
+          <Image style ={{position:'absolute',width:80,height:80,left:10,top:20}}source={require('./assets/caregiver/patient.png')}/>
+        </TouchableOpacity>
+    </View>
+    <View style={{justifyContent:'center',alignItems:'center'}}>
+        <TouchableOpacity  onPress={() => navigation.navigate('Type',{countNumber,Nearfall})} style={{ position:'absolute',width:350,height:140,top:-140,justifyContent:'center',alignItems:'center',borderRadius: 40/2,backgroundColor:'#2EEBA7', borderStartColor:'#40E0D0',borderWidth:2  }} >
+        <View style={{flexDirection:'row'}}>
+            <Text style={{fontSize:30,marginLeft:50}}>Add patients</Text>
+           <Image style ={{position:'absolute',width:80,height:82,left:-40,top:-20}}source={require('./assets/caregiver/Addpatient.png')}/>
+        </View>   
+        </TouchableOpacity>
+    </View>
+      
+      
       
     </View>
   </View>
@@ -319,7 +338,7 @@ function report({navigation,route}) {
 const Test1 = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="fun2">
+      <Stack.Navigator initialRouteName="Addpatient">
         <Stack.Screen name="fun1" component={fun1} />
         <Stack.Screen name="fun2" component={fun2} />
         <Stack.Screen name="Test2" component={Test2} />
