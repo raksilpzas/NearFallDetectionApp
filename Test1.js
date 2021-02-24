@@ -332,6 +332,20 @@ function Selectpatient({navigation,route}) {
  
 }
 
+function splashScreen({navigation}) {
+  setTimeout(()=>{
+    navigation.navigate('fun2')
+  },4000)
+ 
+  return(
+    <View style={{backgroundColor:'#66FFDA',alignItems:'center',justifyContent:'center',flex:1}}>
+      <Image style={{flex:2,width:360}} source={require('./assets/Aboutus.png')}></Image>
+    </View>
+    
+  )
+  
+}
+
 
 function report({navigation,route}) {
   
@@ -379,7 +393,7 @@ function report({navigation,route}) {
 const Test1 = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="fun2">
+      <Stack.Navigator initialRouteName="splashScreen">
         <Stack.Screen name="fun1" component={fun1} />
         <Stack.Screen name="fun2" component={fun2} />
         <Stack.Screen name="Test2" component={Test2} />
@@ -402,6 +416,8 @@ const Test1 = () => {
         <Stack.Screen name="Addpatient" component={Addpatient} />
         <Stack.Screen name="Selectpatient" component={Selectpatient} />
         <Stack.Screen name="AddPatient2" component={AddPatient2} />
+        <Stack.Screen name="splashScreen" component={splashScreen} />
+        
         
       </Stack.Navigator>
     </NavigationContainer>
