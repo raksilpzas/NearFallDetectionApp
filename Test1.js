@@ -138,21 +138,33 @@ function Addpatient({navigation}) {
           <Image   source={require('./assets/patient/wet-floor.png')}  style = {{opacity:0.1,marginLeft:80,width:250,height:204}}/>  
     </View>
 
+
+    <View style={{flex:1.3}}>
+      <TouchableHighlight onPress={() => navigation.navigate('Selectpatient')} style={{justifyContent:'center',alignItems:'center',position:'absolute',width:250,height:50,right:-125,top:20,backgroundColor:'#fff',borderStartColor:'#000',borderWidth:2}}>
+        <Text style={{justifyContent:'center',alignItems:'center',fontSize:30}} >Caregiver</Text>
+      </TouchableHighlight>
+
+    </View>
+
+
+    <View style={{flex:1}}>
     <View style={{justifyContent:'center',alignItems:'center'}}>
     
-        <TouchableOpacity  onPress={() => navigation.navigate('Type',{countNumber,Nearfall})} style={{ borderRadius: 40/2,position:'absolute',width:350,height:140,top:-300,justifyContent:'center',alignItems:'center',backgroundColor:'#4CBFD9', borderStartColor:'#40E0D0',borderWidth:2  }} >
+        <TouchableOpacity  onPress={() => navigation.navigate('Selectpatient')} style={{ borderRadius: 40/2,position:'absolute',width:350,height:140,top:-300,justifyContent:'center',alignItems:'center',backgroundColor:'#4CBFD9', borderStartColor:'#40E0D0',borderWidth:2  }} >
           <Text style={{fontSize:30}}>Patients</Text>
           <Image style ={{position:'absolute',width:80,height:80,left:10,top:20}}source={require('./assets/caregiver/patient.png')}/>
         </TouchableOpacity>
     </View>
     <View style={{justifyContent:'center',alignItems:'center'}}>
-        <TouchableOpacity  onPress={() => navigation.navigate('Type',{countNumber,Nearfall})} style={{ position:'absolute',width:350,height:140,top:-140,justifyContent:'center',alignItems:'center',borderRadius: 40/2,backgroundColor:'#2EEBA7', borderStartColor:'#40E0D0',borderWidth:2  }} >
+        <TouchableOpacity  onPress={() => navigation.navigate('AddPatient2')} style={{ position:'absolute',width:350,height:140,top:-140,justifyContent:'center',alignItems:'center',borderRadius: 40/2,backgroundColor:'#2EEBA7', borderStartColor:'#40E0D0',borderWidth:2  }} >
         <View style={{flexDirection:'row'}}>
             <Text style={{fontSize:30,marginLeft:50}}>Add patients</Text>
            <Image style ={{position:'absolute',width:80,height:82,left:-40,top:-20}}source={require('./assets/caregiver/Addpatient.png')}/>
         </View>   
         </TouchableOpacity>
     </View>
+    </View>
+
       
       
       
@@ -160,6 +172,35 @@ function Addpatient({navigation}) {
   </View>
   )
   
+}
+
+function AddPatient2({navigation}) {
+  const [HN, setHN] = useState('')
+  return(
+    <View style={{justifyContent:'center',alignItems:'center'}}>
+      <Text style={{fontSize:30}}>{HN}</Text>
+      <TextInput 
+      placeholder='Hospital Number (ID)'
+      placeholderTextColor='#808B96'
+      keyboardType='numeric'
+      maxLength={8}
+      onChangeText={(val)=> setHN(val)}
+        style={{
+        marginTop:40,borderRadius:40/2,
+        boaderWidth:10,boaderColor:'#aaa',
+        backgroundColor:'#8EDFC2',width:350,
+        height:80,fontSize:30,paddingHorizontal:30
+        }}
+        
+        />
+  <View style={{justifyContent:'center',alignItems:'center'}}>
+    <TouchableOpacity onPress={() => navigation.navigate('Addpatient')} style={{ borderRadius: 40/2,position:'absolute',width:350,height:80,top:500,justifyContent:'center',alignItems:'center',backgroundColor:'#8EDFC2', borderStartColor:'#40E0D0',borderWidth:2  }} >
+      <Text style={{fontSize:30}}>Confirm</Text>
+    </TouchableOpacity>
+  </View>
+      
+    </View>
+  )
 }
 
 
@@ -319,7 +360,7 @@ function report({navigation,route}) {
       </TouchableOpacity>
       </View>
       <View style={{borderRadius: 40/2,flex:3.2,backgroundColor:'#8EDFC2'}}>
-      <TextInput style={{borderRadius: 40/2,backgroundColor:'#8EDFC2',fontSize:30,paddingVertical:20}} placeholder="Detail...." placeholderTextColor="#808B96 "/>
+      <TextInput multiline style={{borderRadius: 40/2,backgroundColor:'#8EDFC2',fontSize:30,paddingVertical:20}} placeholder="Detail...." placeholderTextColor="#808B96 "/>
 
       </View>
     <View >
@@ -338,7 +379,7 @@ function report({navigation,route}) {
 const Test1 = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Addpatient">
+      <Stack.Navigator initialRouteName="fun2">
         <Stack.Screen name="fun1" component={fun1} />
         <Stack.Screen name="fun2" component={fun2} />
         <Stack.Screen name="Test2" component={Test2} />
@@ -360,6 +401,8 @@ const Test1 = () => {
         <Stack.Screen name="Care" component={Care} />
         <Stack.Screen name="Addpatient" component={Addpatient} />
         <Stack.Screen name="Selectpatient" component={Selectpatient} />
+        <Stack.Screen name="AddPatient2" component={AddPatient2} />
+        
       </Stack.Navigator>
     </NavigationContainer>
   );
