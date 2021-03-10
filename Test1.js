@@ -5,6 +5,7 @@ import {createStackNavigator} from '@react-navigation/stack'
 import 'react-native-gesture-handler';
 import React,{useState} from 'react'
 import { FloatingLabelInput } from 'react-native-floating-label-input';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 
 
 
@@ -37,6 +38,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+//side bar menu
+const Drawer = createDrawerNavigator();
 
 function fun1({navigation}) {
   return(
@@ -386,20 +390,13 @@ function report({navigation,route}) {
   
 }
 
-
-
-
-
-const Test1 = () => {
-  return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="splashScreen">
+/*<NavigationContainer>
+      <Stack.Navigator initialRouteName="fun2">
         <Stack.Screen name="fun1" component={fun1} />
         <Stack.Screen name="fun2" component={fun2} />
         <Stack.Screen name="Test2" component={Test2} />
         <Stack.Screen name="Test3" component={Test3} />
         <Stack.Screen name="Test4" component={Test4} />
-        
         <Stack.Screen name="Loading" component={Loading} />
         <Stack.Screen name="check" component={check} />
         <Stack.Screen name="Type" component={Type} />
@@ -419,7 +416,44 @@ const Test1 = () => {
         <Stack.Screen name="splashScreen" component={splashScreen} />
         
         
+        
+        
       </Stack.Navigator>
+    </NavigationContainer>*/
+
+
+
+const Test1 = () => {
+  return (
+    <NavigationContainer>
+      <Drawer.Navigator initialRouteName="fun2">
+        <Drawer.Screen name="fun1" component={fun1} />
+        <Drawer.Screen name="fun2" component={fun2} />
+        <Drawer.Screen name="Test2" component={Test2} />
+        <Drawer.Screen name="Test3" component={Test3} />
+        <Drawer.Screen name="Test4" component={Test4} />
+        <Drawer.Screen name="Loading" component={Loading} />
+        <Drawer.Screen name="check" component={check} />
+        <Drawer.Screen name="Type" component={Type} />
+        <Drawer.Screen name="report" component={report} />
+        <Drawer.Screen name="Trend" component={Trend} />
+        <Drawer.Screen name="History" component={History} />
+        <Drawer.Screen name="Setting" component={Setting} />
+        <Drawer.Screen name="HeartRate" component={HeartRate} />
+        <Drawer.Screen name="LOO" component={LOO} />
+        <Drawer.Screen name="Test2Care" component={Test2Care} />
+        <Drawer.Screen name="Test3Care" component={Test3Care} />
+        <Drawer.Screen name="Test4Care" component={Test4Care} />
+        <Drawer.Screen name="Care" component={Care} />
+        <Drawer.Screen name="Addpatient" component={Addpatient} />
+        <Drawer.Screen name="Selectpatient" component={Selectpatient} />
+        <Drawer.Screen name="AddPatient2" component={AddPatient2} />
+        <Drawer.Screen name="splashScreen" component={splashScreen} />
+        
+        
+        
+        
+      </Drawer.Navigator>
     </NavigationContainer>
   );
 };

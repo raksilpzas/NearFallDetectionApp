@@ -25,9 +25,12 @@ const Test2 = ({navigation}) => {
   
 
   return (
+    
     <View style={{padding: 50,flex:1 ,backgroundColor:'#8EDFC2'}}>
       
-      
+      <View style={{position:'absolute',width:162,height:162,left:10,top:400}}>
+              <Image   source={require('./assets/patient/wet-floor.png')}  style = {{opacity:0.1,marginLeft:80,width:250,height:204}}/>  
+          </View>
      
     
       <View style={{flex:1,marginTop:-30}}>
@@ -134,9 +137,7 @@ const Test2 = ({navigation}) => {
         </View>
           <AppButtonLog3 title="Login" onPress={() => navigation.navigate('Test4',{countNumber:+0,Nearfall:+0})} />
         
-          <View style={{position:'absolute',width:162,height:162,left:10,top:400}}>
-              <Image   source={require('./assets/patient/wet-floor.png')}  style = {{opacity:0.1,marginLeft:80,width:250,height:204}}/>  
-          </View>
+         
     </View>
   );
 };
